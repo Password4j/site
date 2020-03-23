@@ -11,7 +11,7 @@
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=Password4j_password4j&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=Password4j_password4j)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=Password4j_password4j&metric=coverage)](https://sonarcloud.io/dashboard?id=Password4j_password4j)
 
-Password4j is a Java utility package for hashing and checking passwords with different [Crypto Hashing Functions](https://en.wikipedia.org/wiki/Cryptographic_hash_function) (CHFs).
+Password4j is a Java utility package for hashing and checking passwords with different [Cryptographic hash function](https://en.wikipedia.org/wiki/Cryptographic_hash_function) (CHFs).
 
 Algorithms can be configured **programmatically** or through a **property file** in your classpath <sup>see [Configuration section](#Configuration)</sup>.
 
@@ -139,6 +139,7 @@ It is always recommended to use `char[]` instead of `String` <sup>(where possibl
 most web containers will pass the password into the `HttpServletRequest` object in plaintext as `String`)</sup>.
 
 For this reason Password4j provides a `SecureString` class that alleviates this problem. The provided
+`char[]` is wrapped around `SecureString` and it is never converted into a `String` during the process.
 
 You can erase the underlying `char[]` with `clear()` method.
 ```java
