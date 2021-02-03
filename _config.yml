@@ -1,2 +1,5 @@
 theme: jekyll-theme-cayman
 title: Password4j
+
+github:
+  repository_url: https://github.com/Password4j/password4j
