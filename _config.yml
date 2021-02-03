@@ -1,5 +1,2 @@
-theme: jekyll-theme-minimal
-
+theme: jekyll-theme-cayman
 title: Password4j
-
-description: Hash passwords with different cryptographic hashing functions

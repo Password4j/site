@@ -1,7 +1,7 @@
 ![logo](https://i.imgur.com/BAAwsxr.png "Password4j logo")
 
 [![Build Status](https://travis-ci.org/Password4j/password4j.svg?branch=master)](https://travis-ci.org/Password4j/password4j)
-[![Maven Central](https://img.shields.io/maven-central/v/com.password4j/password4j)](https://search.maven.org/artifact/com.password4j/password4j/1.3.0/jar)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.password4j/password4j/badge.svg?color=purple)](https://maven-badges.herokuapp.com/maven-central/com.password4j/password4j)
 [![javadoc](https://javadoc.io/badge2/com.password4j/password4j/javadoc.svg)](https://javadoc.io/doc/com.password4j/password4j)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
@@ -11,16 +11,20 @@
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=Password4j_password4j&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=Password4j_password4j)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=Password4j_password4j&metric=coverage)](https://sonarcloud.io/dashboard?id=Password4j_password4j)
 
-Password4j is a Java utility package for hashing and checking passwords with different [Cryptographic hash function](https://en.wikipedia.org/wiki/Cryptographic_hash_function) (CHFs).
+Password4j is a Java **user-friendly** cryptographic library for hashing and checking passwords with different [Key derivation functions](https://en.wikipedia.org/wiki/Key_derivation_function) (KDFs) 
+and [Cryptographic hash functions](https://en.wikipedia.org/wiki/Cryptographic_hash_function) (CHFs).
 
 Algorithms can be configured **programmatically** or through a **property file** in your classpath <sup>see [Configuration section](#Configuration)</sup>.
 
 The configurations are mostly dependent on your environment. Password4j delivers a **tool that can create
 a set of optimal parameters** based on the system performance and the desired maximum computational time <sup>see [Performance section](#Performance)</sup>.
 
-![Hash and verify](https://i.imgur.com/zQMvGdG.png)
+![Hash](https://i.imgur.com/1Pduapf.png)
+![Verify](https://i.imgur.com/JgfNbQf.png)
 
-The library fully supports **[BCrypt](https://en.wikipedia.org/wiki/Bcrypt)**, **[SCrypt](https://en.wikipedia.org/wiki/Scrypt)** and **[PBKDF2](https://en.wikipedia.org/wiki/PBKDF2)** 
+
+
+The library fully supports **[Argon2](https://en.wikipedia.org/wiki/Argon2)**, **[BCrypt](https://en.wikipedia.org/wiki/Bcrypt)**, **[SCrypt](https://en.wikipedia.org/wiki/Scrypt)** and **[PBKDF2](https://en.wikipedia.org/wiki/PBKDF2)** 
 and can produce and handle cryptographic **[salt](https://en.wikipedia.org/wiki/Salt_%28cryptography%29)** and **[pepper](https://en.wikipedia.org/wiki/Pepper_%28cryptography%29)**.
 
 
@@ -34,7 +38,7 @@ Add the dependency of the latest version to your `pom.xml`:
 <dependency>
     <groupId>com.password4j</groupId>
     <artifactId>password4j</artifactId>
-    <version>1.3.0</version>
+    <version>1.5.0</version>
 </dependency>
 ```
 
@@ -46,18 +50,18 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.password4j:password4j:1.3.0'
+    implementation 'com.password4j:password4j:1.5.0'
 }
 ```
 
 ## ![Scala SBT](https://i.imgur.com/Nqv3mVd.png?1) Scala SBT 
 Add to the managed dependencies of your `build.sbt` the latest version:
 ```shell script
-libraryDependencies += "com.password4j" % "password4j" % "1.3.0"
+libraryDependencies += "com.password4j" % "password4j" % "1.5.0"
 ```
 
 # Usage
-Password4j provides three main features.
+Password4j provides three main features: password hashing, hash checking and hash updating.
 
 ## Hash the password
 Here it is the easiest way to hash a password with a CHF (BCrypt in this case)
@@ -86,7 +90,7 @@ The same structure can be adopted for the other CHFs, not just for PBKDF2.
 
 
 ## Verify the hash
-With the same ease you can verify an hash
+With the same ease you can verify the hash:
 ```java
 boolean verified = Password.check(password, hash).withBCrypt();
 ```
@@ -94,7 +98,7 @@ boolean verified = Password.check(password, hash).withBCrypt();
 Salt and pepper may be optionally added to the builder (PBKDF2 in this case): 
 
 ```java
-/ Verify with PBKDF2.
+// Verify with PBKDF2.
 boolean verification = Password.check(password, hash).withPBKDF2();
 
 // Verify with PBKDF2 and manually provided salt.
@@ -103,14 +107,19 @@ boolean verification = Password.check(password, hash).addSalt(salt).withPBKDF2()
 // Verify with PBKDF2 and manually provided salt and pepper.
 boolean verification = Password.check(password, hash).addSalt(salt).addPepper(pepper).withPBKDF2();
 ```
- The same structure can be adopted for the other algorithms, not just for PBKDF2. Take in account that BCrypt and SCrypt store the salt
+ The same structure can be adopted for the other algorithms, not just for PBKDF2. Take in account that Argon2, BCrypt and SCrypt store the salt
  inside the hash, so the `addSalt()` method is not needed.
+```java
+// Verify with Argon2, reads the salt from the given hash.
+boolean verification = Password.check(password, hash).withArgon2();
+```
 
 
 ## Update the hash
 When a configuration is not considered anymore secure  you can
-refresh the hash like this:
+refresh the hash with a more modern algorithm like this:
 ```java
+// Reads the latest configurations in your psw4j.properties
 HashUpdate update = Password.check(password, hash).update().withBCrypt();
 
 if(update.isVerified())
@@ -129,23 +138,48 @@ if(update.isVerified())
 }
 ```
 
+## Unsecure Algorithms
+Many systems may still use unsecure algorithms for storing the passwords, like [MD5](https://en.wikipedia.org/wiki/MD5) or [SHA-256](https://en.wikipedia.org/wiki/SHA-2).
+You can easily migrate to stronger algorithms with Password4j
+```java
+MessageDigestFunction md = MessageDigestFunction.getInstance("SHA-256");
+HashUpdate update = Password.check(password, hash).update().withSCrypt(md);
+
+if(update.isVerified())
+{
+    Hash newHash = update.getHash();
+}
+```
+
+## List of supported algorithms
+| Key derivation Functions | Since | Notes                                                |
+|--------------------------|-------|------------------------------------------------------|
+| PBKDF2                   | 1.0.0 | Depending on the Security Services your JVM provides |
+| BCrypt                   | 1.0.0 |                                                      |
+| SCrypt                   | 1.0.0 |                                                      |
+| Argon2                   | 1.5.0 |                                                      |
+
+| Cryptographic Hash Functions | Since | Notes                                                 |
+|------------------------------|-------|-------------------------------------------------------|
+| MD Family                    | 1.4.0 |                                                       |
+| SHA1 Family                  | 1.4.0 |                                                       |
+| SHA2 Family                  | 1.4.0 |                                                       |
+| SHA3 FAmily                  | 1.4.0 | Depending on the Security Providers your JVM provides |
+
+
 ## Security of Strings
-`String`s are immutable objects and they are stored in the String Pool, a location in the heap memory.
-Since you do not have control on the Garbage Collector, an attacker that has access to the memory could read the password
-just before you use it as input for Password4j. Even after this, the `String` may be still persisted in memory
-until the garbage collection occurs.
+`String`s are immutable objects and once stored in memory you cannot erase them until Garbage Collection. It is always [recommended](https://docs.oracle.com/javase/8/docs/technotes/guides/security/crypto/CryptoSpec.html#PBEEx) to use `char[]` instead of `String` for storing passwords<sup>(where possible - If we're talking of a web application, most web containers will pass the password into the `HttpServletRequest` object in plaintext as `String`)</sup>.
 
-It is always recommended to use `char[]` instead of `String` <sup>(where possible - If we're talking of a web application, 
-most web containers will pass the password into the `HttpServletRequest` object in plaintext as `String`)</sup>.
+An attacker that is able to dump the memory could read the password before you use it as input for Password4j; even if it is read after its usage, it is not guaranteed when the garbage collection occurs: that means that the password may be stored in memory indefinitely and its value cannot be erased.
 
-For this reason Password4j provides a `SecureString` class that alleviates this problem. The provided
+For this reason Password4j provides a `SecureString` class that **alleviates** this problem. The provided
 `char[]` is wrapped around `SecureString` and it is never converted into a `String` during the process.
 
 You can erase the underlying `char[]` with `clear()` method.
 ```java
 SecureString secure = new SecureString(new char[]{...});
 
-Passowrd.hash(secure).withBCrypt();
+Password.hash(secure).withBCrypt();
 Password.check(secure, hash).withBCrypt();
 
 secure.clear();
@@ -161,25 +195,34 @@ SecureString secure = new SecureString(password, true);
 ```
 The pepper can be expressed as `SecureString` as well.
 
+Using `SecureString` or `char[]` does not completely defend you from attacks: the Garbage Collector constantly copies objects from the _from space_ to the _to space_ and ereasing the original `char[]` does not erase its copies; moreover it is never guaranteed that `clear()` is applied before the garbage collection.
+For these reasons the usage of `SecureString` or `char[]` just reduces the window of opportunities for an attacker.
+
 # Configuration
 Password4j makes available a portable way to configure the library.
 
 With the property file `psw4j.properties` put in your classpath, you can define the parameters of all the supported CHFs or just the CHF(s) you need.
+Alternatively you can specify a custom path with the system property `-Dpsw4j.configuration`
+
+```shell script
+java -Dpsw4j.configuration=/my/path/to/some.properties ...
+```
 
 Here's a basic configuration (please do not use it in production, but instead start a benchmark session in your target environment<sup>see [Performance section](#Performance)</sup>)
 ```properties
-### PBKDF2
-# with HMAC-SHA256
-hash.pbkdf2.algorithm=SHA256
-# 64000 iterations
-hash.pbkdf2.iterations=64000
-# derived key of 256bit 
-hash.pbkdf2.length=256
+### Argon2
+hash.argon2.memory=4096
+hash.argon2.iterations=20
+hash.argon2.length=128
+hash.argon2.parallelism=4
+hash.argon2.type=id
+
 
 ### BCrypt
 hash.bcrypt.minor=b
 # logarithmic cost (cost = 2^12)
 hash.bcrypt.rounds=12
+
 
 ### SCrypt
 # N
@@ -188,6 +231,23 @@ hash.scrypt.workfactor=16384
 hash.scrypt.resources=16
 # p
 hash.scrypt.parallelization=1
+hash.argon2.version=19
+
+
+### PBKDF2
+# with HMAC-SHA256
+hash.pbkdf2.algorithm=SHA256
+# 64000 iterations
+hash.pbkdf2.iterations=64000
+# derived key of 256bit 
+hash.pbkdf2.length=256
+
+
+### Legacy MessageDisgest
+# algorithm
+hash.md.algorithm=SHA-512
+# append/prepend salt
+hash.md.salt.option=append
 ```
 Additionally you can define here your shared pepper
 ```properties
@@ -202,7 +262,7 @@ Password.hash("password").addPepper().withSCrypt();
 Password.check("password", "hash").addPepper().withSCrypt();
 ```
 
-[SecureRandom](https://docs.oracle.com/javase/8/docs/api/java/security/SecureRandom.html) may be instantiated through `SecureRandom.getInstanceStrong()`
+[SecureRandom](https://docs.oracle.com/javase/8/docs/api/java/security/SecureRandom.html) may be instantiated and used through `SecureRandom.getInstanceStrong()` to generate salts and peppers.
 ```properties
 global.random.strong=true
 ```
