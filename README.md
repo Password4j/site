@@ -1,6 +1,6 @@
 ![logo](https://i.imgur.com/BAAwsxr.png "Password4j logo")
 
-[![Build Status](https://img.shields.io/badge/wiki-available-brightgreen?logo=wikipedia&logoColor=white)](https://github.com/Password4j/password4j/wiki)
+[![Wiki](https://img.shields.io/badge/wiki-available-brightgreen?logo=wikipedia&logoColor=white)](https://github.com/Password4j/password4j/wiki)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.password4j/password4j/badge.svg?color=purple)](https://maven-badges.herokuapp.com/maven-central/com.password4j/password4j)
 [![javadoc](https://javadoc.io/badge2/com.password4j/password4j/javadoc.svg)](https://javadoc.io/doc/com.password4j/password4j)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
@@ -34,7 +34,7 @@ Add the dependency of the latest version to your `pom.xml`:
 <dependency>
     <groupId>com.password4j</groupId>
     <artifactId>password4j</artifactId>
-    <version>1.5.0</version>
+    <version>1.5.1</version>
 </dependency>
 ```
 
@@ -46,14 +46,14 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.password4j:password4j:1.5.0'
+    implementation 'com.password4j:password4j:1.5.1'
 }
 ```
 
 ## ![Scala SBT](https://i.imgur.com/Nqv3mVd.png?1) Scala SBT 
 Add to the managed dependencies of your `build.sbt` the latest version:
 ```shell script
-libraryDependencies += "com.password4j" % "password4j" % "1.5.0"
+libraryDependencies += "com.password4j" % "password4j" % "1.5.1"
 ```
 
 # Usage
@@ -110,6 +110,12 @@ boolean verification = Password.check(password, hash).addSalt(salt).addPepper(pe
 boolean verification = Password.check(password, hash).withArgon2();
 ```
 
+Some algorithms encode into the hash the parameters that were used to compute that hash, notably BCrypt, SCrypt, and Argon2.
+When checking a hash, you can use the parameters from the hash rather than Password4j's configured defaults.
+```java
+// Verify with Argon2, reads the salt and parameters from the given hash.
+boolean verification = Password.check(password, hash)..with(Argon2Function.getInstanceFromHash(hash)));
+```
 
 ## Update the hash
 When a configuration is not considered anymore secure  you can
@@ -227,8 +233,8 @@ hash.scrypt.workfactor=16384
 hash.scrypt.resources=16
 # p
 hash.scrypt.parallelization=1
-hash.argon2.version=19
-
+# length
+hash.scrypt.derivedKeyLength=64
 
 ### PBKDF2
 # with HMAC-SHA256
