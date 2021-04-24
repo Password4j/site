@@ -1,0 +1,115 @@
+body {
+	height: 100%;
+    margin: 0;
+    padding: 0;
+  	font-family: Arial, Helvetica, sans-serif;
+  	font-size: 1.1rem;
+}
+
+header {
+	text-align: center;
+}
+
+header p {
+	font-size: 1.2rem;
+}
+
+main {
+	display: block;
+	position: absolute;
+  	top: 20%;
+  	left: 50%;
+  	transform: translate(-50%, -10%);
+}
+
+h1 {
+	font-family: 'Luxia', sans-serif;
+	font-weight: normal;
+	font-size: 4rem;
+	margin: 0.4rem 0rem;
+
+
+}
+
+.item strong {
+	font-family: 'Luxia', sans-serif;
+	font-size: 2rem;
+	margin: 0.4rem 0rem;
+	font-weight: 500;
+
+}
+
+article {
+	text-align: justify;
+	line-height: 1.5;
+}
+
+div.item {
+    vertical-align: top;
+    display: inline-block;
+    text-align: center;
+}
+
+
+.caption {
+    display: block;
+}
+
+.fa-cloud-download-alt, .fa-github, .fa-rocket {
+	margin-bottom: 10px;
+	font-size: 3rem;
+	padding: 2px 2px;
+  
+}
+
+
+
+.container {
+	margin-top: 10rem;
+	margin-bottom:  10rem;
+	display: flex;
+  justify-content: space-around;
+
+}
+
+
+.container2 {
+	margin-top: 4rem;
+	margin-bottom:  4rem;
+	display: flex;
+  justify-content: space-around;
+
+}
+
+a, a:hover, a:visited {
+	color: #159;
+	text-decoration: none;
+}
+
+.fa-github {
+	background: #232526;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	-webkit-background-clip: text;
+  	-webkit-text-fill-color: transparent;
+
+}
+
+.fa-rocket {
+	background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+
+
+	-webkit-background-clip: text;
+  	-webkit-text-fill-color: transparent;
+}
+
+.fa-cloud-download-alt {
+	background: #36D1DC;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #5B86E5, #36D1DC);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #5B86E5, #36D1DC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
+
+	-webkit-background-clip: text;
+  	-webkit-text-fill-color: transparent;
+}
