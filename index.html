@@ -8,7 +8,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="author" content="David Bertoldi"/>
 		<meta name="apple-mobile-web-app-capable" content="yes"/>
-		<meta charset="utf-8" name="description" content="Password4j is a Java user-friendly cryptographic library for hashing and checking passwords with modern and secure algorithms." />
+		<meta charset="utf-8" name="description" content="Hash passwords in Java and Android with secure algorithms like PBKDF2, bcrypt, scrypt and Argon2." />
 		<meta name="robots" content="index,follow" />
 		<meta name="subject" content="Hash passwords with Java" />
 		<meta name="rating" content="General" />
@@ -63,26 +63,17 @@
 			<div class="container">
 
 				<div class="item">
-					<a href="https://github.com/Password4j/password4j/wiki/Setting-up-Password4j" target="_blank" rel="noopener">
-				    <i class="fas fa-rocket"></i>
-				    <span class="caption">Get started</span>
-				</a>
+					<a href="https://github.com/Password4j/password4j/wiki/Setting-up-Password4j" target="_blank" rel="noopener"><i class="fas fa-rocket"></i><span class="caption">Get started</span></a>
 				</div>
 
 				
 
 				<div class="item">
-					<a href="https://github.com/Password4j/password4j" target="_blank" rel="noopener">
-				    <i class="fab fa-github"></i>
-				    <span class="caption">Source</span>
-				    </a>
+					<a href="https://github.com/Password4j/password4j" target="_blank" rel="noopener"><i class="fab fa-github"></i><span class="caption">Source</span></a>
 				</div>
 
 				<div class="item">
-					<a href="https://github.com/Password4j/site/zipball/master" rel="noopener">
-				    <i class="fas fa-cloud-download-alt"></i>
-				    <span class="caption">Download</span>
-				</a>
+					<a href="https://github.com/Password4j/site/zipball/master" rel="noopener"><i class="fas fa-cloud-download-alt"></i><span class="caption">Download</span></a>
 				</div>
 			</div>
 
@@ -90,9 +81,9 @@
 
 
 			<article>
-				<p>
-				Password4j is a Java user-friendly cryptographic library for hashing and checking passwords <br/>
-				with different <a href="https://en.wikipedia.org/wiki/Key_derivation_function" target="_blank">Key derivation functions</a> (KDFs) and <a href="https://en.wikipedia.org/wiki/Cryptographic_hash_function" target="_blank">Cryptographic hash functions</a> (CHFs).
+				<p style=" margin-bottom: 2rem;">
+				Password4j is a Java user-friendly cryptographic library for hashing and checking passwords 
+				with different <br/><a href="https://en.wikipedia.org/wiki/Key_derivation_function" target="_blank" rel="noopener">Key derivation functions</a> (KDFs) and <a href="https://en.wikipedia.org/wiki/Cryptographic_hash_function" target="_blank" rel="noopener">Cryptographic hash functions</a> (CHFs).
 				</p>
 				<p>You can hash passwords with</p>
 				<div class="container2">
@@ -121,10 +112,25 @@
 
 				</div>
 			</div>
+			<p>Use Password4j when you need to</p>
+			
+
+			<ul class="fa-ul">
+			  	<li><span class="fa-li"><i class="fas fa-check"></i></span>Use the most modern and secure hashing cryptographic functions</li>
+			 	<li><span class="fa-li"><i class="fas fa-check"></i></span>Change the configuration of the algorithm without your users having to reset their password</li>
+			  	<li><span class="fa-li"><i class="fas fa-check"></i></span>Keep your application OS-independent (<i>e.g.</i> you don't want to rely on JNI)</li>
+			  	<li><span class="fa-li"><i class="fas fa-check"></i></span>Choose the algorithms' parameters depending on your system capabilities</li>
+			  	<li><span class="fa-li"><i class="fas fa-check"></i></span>Make your application using unsecure hashing functions (like MD5 or SHA) compliant to organizational standards</li>
+			</ul>
+
 
 			</article>
 
+			<footer>Password4j &copy; 2021</footer>
+
 		</main>
+
+
 
 
 	

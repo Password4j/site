@@ -7,6 +7,7 @@ body {
 }
 
 header {
+	margin-top: 10%;
 	text-align: center;
 }
 
@@ -15,11 +16,14 @@ header p {
 }
 
 main {
+	
+	
+	height: 100vh;
 	display: block;
 	position: absolute;
   	top: 20%;
   	left: 50%;
-  	transform: translate(-50%, -10%);
+  	transform: translate(-50%, -20%);
 }
 
 h1 {
@@ -42,6 +46,13 @@ h1 {
 article {
 	text-align: justify;
 	line-height: 1.5;
+	margin-bottom: 10%;
+}
+
+footer {
+	font-style: italic;
+	color: #aaa;
+	text-align: center;
 }
 
 div.item {
@@ -86,6 +97,14 @@ a, a:hover, a:visited {
 	text-decoration: none;
 }
 
+.fa-ul {
+	margin-bottom: 2rem;
+}
+
+.fa-ul li {
+	margin-bottom: 0.7rem;
+}
+
 .fa-github {
 	background: #232526;  /* fallback for old browsers */
 	background: -webkit-linear-gradient(to right, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
@@ -112,4 +131,17 @@ background: linear-gradient(to right, #5B86E5, #36D1DC); /* W3C, IE 10+/ Edge, F
 
 	-webkit-background-clip: text;
   	-webkit-text-fill-color: transparent;
+}
+
+
+
+.fa-check{
+	background: #56ab2f;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #a8e063, #56ab2f);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #a8e063, #56ab2f); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+font-size: 1.5rem;
+-webkit-background-clip: text;
+  	-webkit-text-fill-color: transparent;
+  	margin-right: 1rem;
+
 }
