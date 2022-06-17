@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.password4j.com/sitemap.xml
+Sitemap: http://www.password4j.com/sitemap.xml
