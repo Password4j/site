@@ -92,18 +92,26 @@
 				<p>You can hash passwords with</p>
 				<div class="container2">
 					<div class="item">
-						<strong>PBKDF2</strong>
+						<a href="https://github.com/Password4j/password4j/wiki/PBKDF2" target="_blank" rel="noopener">
+							<strong>PBKDF2</strong>
+						</a>
 					</div>
 					<div class="item">
-						<strong>bcrypt</strong>
+						<a href="https://github.com/Password4j/password4j/wiki/BCrypt" target="_blank" rel="noopener">
+							<strong>bcrypt</strong>
+						</a>
 					</div>
 				</div>
 				<div class="container2">
 					<div class="item">
-						<strong>scrypt</strong>
+						<a href="https://github.com/Password4j/password4j/wiki/Scrypt" target="_blank" rel="noopener">
+							<strong>scrypt</strong>
+						</a>
 					</div>
 					<div class="item">
-						<strong>Argon2</strong>
+						<a href="https://github.com/Password4j/password4j/wiki/Argon2" target="_blank" rel="noopener">
+							<strong>Argon2</strong>
+						</a>
 					</div>
 				</div>
 				</div>
@@ -122,7 +130,7 @@
 					<li>
 						<span class="fa-li">
 							<i class="fas fa-check"></i>
-						</span>Keep your application OS-independent ( <i>e.g.</i> you don't want to rely on JNI)
+						</span>Keep your application OS-independent ( <i>e.g.</i> you don't want to rely on <a href="https://en.wikipedia.org/wiki/Java_Native_Interface" target="_blank" rel="noopener">JNI</a>)
 					</li>
 					<li>
 						<span class="fa-li">
@@ -133,6 +141,71 @@
 						<span class="fa-li">
 							<i class="fas fa-check"></i>
 						</span>Make your application using unsecure hashing functions (like MD5 or SHA) compliant to organizational standards
+					</li>
+				</ul>
+			</article>
+			<hr />
+			<article>
+				<h2>Wait...what is hashing?</h2>
+				<p style=" margin-bottom: 2rem;">Hashing is the process of generating a string, or hash or digest, from a given message using a function known as a <em>Cryptographic hash function</em>. Cryptographic hash functions have many properties: </p>
+				<ul class="fa-ul">
+					<li>
+						<span class="fa-li">
+							<i class="fa fa-arrow-right"></i>
+						</span>
+						<strong>Deterministic:</strong> the same message processed by the same hash function must always produce the same hash
+					</li>
+					<li>
+						<span class="fa-li">
+							<i class="fa fa-arrow-right"></i>
+						</span>
+						<strong>Pre-Image Resistance:</strong> given the hash, it must be computationally impracticable to search for an input string that gives the same hash
+					</li>
+					<li>
+						<span class="fa-li">
+							<i class="fa fa-arrow-right"></i>
+						</span>
+						<strong>Second Pre-Image Resistance:</strong>given an input and its hash, it must be computationally impracticable to search for a different input string that gives the same hash
+					</li>
+					<li>
+						<span class="fa-li">
+							<i class="fa fa-arrow-right"></i>
+						</span>
+						<strong>Collision Resistance:</strong> it must be computationally impracticable to search for two different input strings that gives the same hash
+					</li>
+				</ul> Also, though, password hashing functions must be slow. A fast algorithm would aid <a href="https://en.wikipedia.org/wiki/Brute-force_attack" target="_blank" rel="noopener">brute force attacks</a> in which a hacker will attempt to guess a password by hashing and comparing billions (or trillions) of potential passwords per second. </p>
+				<h2>What algorithm should I use?</h2>
+				<p style=" margin-bottom: 2rem;">This is not a security advice, but here some hints:</p>
+				<ul class="fa-ul">
+					<li>
+						<span class="fa-li">
+							<i class="fa fa-times"></i>
+						</span>
+						<strong>MD5</strong>: never use it. Password4j still maintains this function just to make the transition to stronger algorithms easier
+					</li>
+					<li>
+						<span class="fa-li">
+							<i class="fas fa-circle"></i>
+						</span>
+						<strong>PBKDF2</strong>: very weak to GPU/ <a href="https://en.wikipedia.org/wiki/Application-specific_integrated_circuit" target="_blank" rel="noopener">ASIC</a> attacks, due to its small consumption of memory. It is still commonly seen in enterprise web applications
+					</li>
+					<li>
+						<span class="fa-li">
+							<i class="fas fa-check"></i>
+						</span>
+						<strong>bcrypt</strong>: a general better choice than PBKDF2. It suffers against GPU/ASIC attacks but it is resistant to <a href="https://en.wikipedia.org/wiki/Time/memory/data_tradeoff_attack" target="_blank" rel="noopener">TMTO</a> attacks
+					</li>
+					<li>
+						<span class="fa-li">
+							<i class="fas fa-check"></i>
+						</span>
+						<strong>scrypt</strong>: gains an arbitrary level of parallelism over bcrypt. When slow enough, can resist to GPU/ASIC attacks but it is weak to TMTO attacks
+					</li>
+					<li>
+						<span class="fa-li">
+							<i class="fas fa-check"></i>
+						</span>
+						<strong>Argon2</strong>: resistant to GPU/ASIC attacks, TMTO attacks and <a href="https://en.wikipedia.org/wiki/Side-channel_attack" target="_blank" rel="noopener">side channel attacks</a> but may require a lot of resources
 					</li>
 				</ul>
 			</article>
