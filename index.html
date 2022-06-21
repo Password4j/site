@@ -57,6 +57,21 @@
 			<header id="header">
 				<h1 id="title">Password4j</h1>
 				<p>A fluent cryptographic library for passwords.</p>
+				<a href="https://github.com/Password4j/password4j/actions/workflows/build.yml">
+					<img src="https://github.com/Password4j/password4j/actions/workflows/build.yml/badge.svg" alt="Build Status">
+				</a>
+				<a href="https://maven-badges.herokuapp.com/maven-central/com.password4j/password4j" rel="nofollow">
+					<img src="https://maven-badges.herokuapp.com/maven-central/com.password4j/password4j/badge.svg?color=purple" alt="Maven Central">
+				</a>
+				<a href="https://docs.oracle.com/javase/8/" rel="nofollow">
+					<img src="https://img.shields.io/badge/JDK-8%2B-007396" alt="Java 8 or higher">
+				</a>
+				<a href="https://developer.android.com/about/versions/lollipop4" rel="nofollow">
+					<img src="https://img.shields.io/badge/Android-5.0%2B-3DDC84" alt="Android 5.0 or higher">
+				</a>
+				<a href="https://github.com/sindresorhus/awesome" rel="nofollow">
+					<img src="https://raw.githubusercontent.com/sindresorhus/awesome/main/media/badge.svg" alt="Awesome">
+				</a>
 			</header>
 			<div class="container">
 				<div class="item">
@@ -79,7 +94,7 @@
 				</div>
 			</div>
 			<article>
-				<p style=" margin-bottom: 2rem;"> Password4j is a Java fluent cryptographic library for hashing and checking passwords with different <br />
+				<p style=" margin-bottom: 2rem;"> Password4j is a Java fluent cryptographic library for hashing and checking passwords with different
 					<a href="https://en.wikipedia.org/wiki/Key_derivation_function" target="_blank" rel="noopener">Key derivation functions</a> (KDFs) and <a href="https://en.wikipedia.org/wiki/Cryptographic_hash_function" target="_blank" rel="noopener">Cryptographic hash functions</a> (CHFs).
 				</p>
 				<p>You can hash passwords with</p>
@@ -167,41 +182,53 @@
 						<strong>Collision Resistance:</strong> it must be computationally impracticable to search for two different input strings that gives the same hash
 					</li>
 				</ul> Also, though, password hashing functions must be slow. A fast algorithm would aid <a href="https://en.wikipedia.org/wiki/Brute-force_attack" target="_blank" rel="noopener">brute force attacks</a> in which a hacker will attempt to guess a password by hashing and comparing billions (or trillions) of potential passwords per second. </p>
+			</article>
+			<article>
 				<h2>What algorithm should I use?</h2>
 				<p style=" margin-bottom: 2rem;">This is not a security advice, but here some hints:</p>
 				<ul class="fa-ul">
 					<li>
 						<span class="fa-li">
-							<i class="fa fa-times"></i>
+							<i class="fas fa-check"></i>
 						</span>
-						<strong>MD5</strong>: never use it. Password4j still maintains this function just to make the transition to stronger algorithms easier
+						<strong>Argon2</strong>: resistant to GPU/ASIC attacks, TMTO attacks and <a href="https://en.wikipedia.org/wiki/Side-channel_attack" target="_blank" rel="noopener">side channel attacks</a> but may require a lot of resources. <br/>
+						OWASP recommends using it with minimum configuration of 15 MiB of memory, an iteration count of 2, and 1 degree of parallelism
+					</li>
+					<li>
+						<span class="fa-li">
+							<i class="fas fa-check"></i>
+						</span>
+						<strong>scrypt</strong>: gains an arbitrary level of parallelism over bcrypt. When slow enough, can resist to GPU/ASIC attacks but it is weak to TMTO attacks.<br/>
+						OWAPS recommends using it (if Argon2's adoption is not feasible) with a minimum CPU/memory cost parameter of (2^16), a minimum block size of 8 (1024 bytes), and a parallelization parameter of 1
+					</li>
+					<li>
+						<span class="fa-li">
+							<i class="fas fa-check"></i>
+						</span>
+						<strong>bcrypt</strong>: a general better choice than PBKDF2. It suffers against GPU/ASIC attacks but it is resistant to <a href="https://en.wikipedia.org/wiki/Time/memory/data_tradeoff_attack" target="_blank" rel="noopener">TMTO</a> attacks. <br/>
+						OWAPS recommends using it (if scrypt's adoption is not feasible) with a work factor of 10 or more and with a password limit of 72 bytes
 					</li>
 					<li>
 						<span class="fa-li">
 							<i class="fas fa-circle"></i>
 						</span>
-						<strong>PBKDF2</strong>: very weak to GPU/ <a href="https://en.wikipedia.org/wiki/Application-specific_integrated_circuit" target="_blank" rel="noopener">ASIC</a> attacks, due to its small consumption of memory. It is still commonly seen in enterprise web applications
+						<strong>PBKDF2</strong>: very weak to GPU/ <a href="https://en.wikipedia.org/wiki/Application-specific_integrated_circuit" target="_blank" rel="noopener">ASIC</a> attacks, due to its small consumption of memory. It is still commonly seen in enterprise web applications. <br/><a href="https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html" target="_blank" rel="noopener">OWASP</a> recommends using it with a work factor of 310,000 or more and with an internal hash function of HMAC-SHA-256 in case bcrypt is not available
 					</li>
 					<li>
 						<span class="fa-li">
-							<i class="fas fa-check"></i>
+							<i class="fa fa-times"></i>
 						</span>
-						<strong>bcrypt</strong>: a general better choice than PBKDF2. It suffers against GPU/ASIC attacks but it is resistant to <a href="https://en.wikipedia.org/wiki/Time/memory/data_tradeoff_attack" target="_blank" rel="noopener">TMTO</a> attacks
-					</li>
-					<li>
-						<span class="fa-li">
-							<i class="fas fa-check"></i>
-						</span>
-						<strong>scrypt</strong>: gains an arbitrary level of parallelism over bcrypt. When slow enough, can resist to GPU/ASIC attacks but it is weak to TMTO attacks
-					</li>
-					<li>
-						<span class="fa-li">
-							<i class="fas fa-check"></i>
-						</span>
-						<strong>Argon2</strong>: resistant to GPU/ASIC attacks, TMTO attacks and <a href="https://en.wikipedia.org/wiki/Side-channel_attack" target="_blank" rel="noopener">side channel attacks</a> but may require a lot of resources
+						<strong>MD5</strong>: never use it. Password4j still maintains this function just to make the transition to stronger algorithms easier. If your project still uses MD5 
+						to hash passwords you have a severe security issue. Please follow <a href="https://github.com/Password4j/password4j/blob/master/examples/MigrateFromMD5.java" target="_blank" rel="noopener">this example</a> in order to fix the problem.
 					</li>
 				</ul>
 				<p><a href="https://github.com/Password4j/password4j/wiki/Setting-up-Password4j" target="_blank" rel="noopener">Upgrade now your project!</a></p>
+			</article>
+			<article>
+				<h2>Is it JCA compliant?</h2>
+				<p>Yes! The side project <a href="https://github.com/Password4j/password4j-jca" target="_blank" rel="noopener">Password4j-JCA</a> extends the Java Cryptography Architecture so that you can use all the
+				algorithms provided by Password4j. Because of the nature of the Security Providers, this library is compatible with Java 9 and up.</p>
+				<p><a href="https://github.com/Password4j/password4j-jca" target="_blank" rel="noopener">Give it a try!</a></p> 
 			</article>
 			<footer>Password4j &copy; 2022</footer>
 		</main>
