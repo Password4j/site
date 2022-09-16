@@ -6,7 +6,8 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="author" content="David Bertoldi" />
 		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta charset="utf-8" name="description" content="Hash and protect passwords in Java and Android with secure algorithms like Argon2, bcrypt, scrypt and PBKDF2." />
+		<meta charset="utf-8" name="description" content="Encrypt and protect passwords in Java and Android with secure algorithms like Argon2, bcrypt, scrypt and PBKDF2." />
+		<meta name="keywords" content="encryption, password, java, argon2, scrypt, bcrypt, pbkdf2, md5, hash, cryptography">
 		<meta name="robots" content="index,follow" />
 		<meta name="subject" content="Hash and protect passwords in Java" />
 		<meta name="rating" content="General" />
@@ -34,7 +35,6 @@
 		<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
 		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.1/cookieconsent.min.css" />
-		<link href="https://fonts.cdnfonts.com/css/luxia" rel="stylesheet">
 		<link rel="stylesheet" href="css/style.css">
 		<link rel="canonical" href="https://password4j.com" />
 		<link rel="manifest" data-n-head="true" href="manifest.json" />
@@ -55,7 +55,7 @@
 	<body>
 		<main>
 			<header id="header">
-				<img src="images/password4j2-mini.png" title="Password4j" alt="Password4j">
+				<h1 id="title">Password4J</h1>
 				<p>A fluent cryptographic library for passwords.</p>
 				<a href="https://github.com/Password4j/password4j/actions/workflows/build.yml">
 					<img src="https://github.com/Password4j/password4j/actions/workflows/build.yml/badge.svg" alt="Build Status">
@@ -94,31 +94,31 @@
 				</div>
 			</div>
 			<article>
-				<p style=" margin-bottom: 2rem;"> Password4j is a Java fluent cryptographic library for hashing and checking passwords with different
+				<p style=" margin-bottom: 2rem;"> Password4j is a Java fluent cryptographic library for encrypting and checking passwords with different
 					<a href="https://en.wikipedia.org/wiki/Key_derivation_function" target="_blank" rel="noopener">Key derivation functions</a> (KDFs) and <a href="https://en.wikipedia.org/wiki/Cryptographic_hash_function" target="_blank" rel="noopener">Cryptographic hash functions</a> (CHFs).
 				</p>
-				<p>You can hash passwords with</p>
+				<p>You can encrypt passwords with</p>
 				<div class="container2">
 					<div class="item">
-						<a href="https://github.com/Password4j/password4j/wiki/PBKDF2" target="_blank" rel="noopener">
-							<strong>PBKDF2</strong>
+						<a href="https://github.com/Password4j/password4j/wiki/Argon2" target="_blank" rel="noopener">
+							<strong>Argon2</strong>
 						</a>
 					</div>
-					<div class="item">
-						<a href="https://github.com/Password4j/password4j/wiki/BCrypt" target="_blank" rel="noopener">
-							<strong>bcrypt</strong>
-						</a>
-					</div>
-				</div>
-				<div class="container2">
 					<div class="item">
 						<a href="https://github.com/Password4j/password4j/wiki/Scrypt" target="_blank" rel="noopener">
 							<strong>scrypt</strong>
 						</a>
 					</div>
+				</div>
+				<div class="container2">
 					<div class="item">
-						<a href="https://github.com/Password4j/password4j/wiki/Argon2" target="_blank" rel="noopener">
-							<strong>Argon2</strong>
+						<a href="https://github.com/Password4j/password4j/wiki/BCrypt" target="_blank" rel="noopener">
+							<strong>bcrypt</strong>
+						</a>
+					</div>
+					<div class="item">
+						<a href="https://github.com/Password4j/password4j/wiki/PBKDF2" target="_blank" rel="noopener">
+							<strong>PBKDF2</strong>
 						</a>
 					</div>
 				</div>
@@ -154,7 +154,7 @@
 			</article>
 			<hr />
 			<article>
-				<h2>Wait...what is hashing?</h2>
+				<h2>What is hashing</h2>
 				<p style=" margin-bottom: 2rem;">Hashing is the process of generating a string, or hash or digest, from a given message using a function known as a <em>Cryptographic hash function</em>. Cryptographic hash functions have many properties: </p>
 				<ul class="fa-ul">
 					<li>
@@ -184,7 +184,7 @@
 				</ul> Also, though, password hashing functions must be slow. A fast algorithm would aid <a href="https://en.wikipedia.org/wiki/Brute-force_attack" target="_blank" rel="noopener">brute force attacks</a> in which a hacker will attempt to guess a password by hashing and comparing billions (or trillions) of potential passwords per second. </p>
 			</article>
 			<article>
-				<h2>What algorithm should I use?</h2>
+				<h2>What algorithm to choose</h2>
 				<p style=" margin-bottom: 2rem;">This is not a security advice, but here some hints:</p>
 				<ul class="fa-ul">
 					<li>
@@ -225,7 +225,7 @@
 				<p><a href="https://github.com/Password4j/password4j/wiki/Setting-up-Password4j" target="_blank" rel="noopener">Upgrade now your project!</a></p>
 			</article>
 			<article>
-				<h2>Is it JCA compliant?</h2>
+				<h2>JCA compliancy</h2>
 				<p>Yes! The side project <a href="https://github.com/Password4j/password4j-jca" target="_blank" rel="noopener">Password4j-JCA</a> extends the Java Cryptography Architecture so that you can use all the
 				algorithms provided by Password4j. Because of the nature of the Security Providers, this library is compatible with Java 9 and up.</p>
 				<p><a href="https://github.com/Password4j/password4j-jca" target="_blank" rel="noopener">Give it a try!</a></p> 
