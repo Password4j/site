@@ -1,236 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<title>Password4j | Encrypt passwords in Java</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="author" content="David Bertoldi" />
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta charset="utf-8" name="description" content="Encrypt and protect passwords in Java and Android with secure algorithms like Argon2, bcrypt, scrypt and PBKDF2." />
-		<meta name="keywords" content="encryption, password, java, argon2, scrypt, bcrypt, pbkdf2, md5, hash, cryptography">
-		<meta name="robots" content="index,follow" />
-		<meta name="subject" content="Hash and protect passwords in Java" />
-		<meta name="rating" content="General" />
-		<meta property="og:url" content="https://password4j.com" />
-		<meta property="og:title" content="Password4j" />
-		<meta property="og:description" content="Hash and protect passwords in Java and Android with secure algorithms like Argon2, bcrypt, scrypt and PBKDF2." />
-		<meta property="og:image" content="https://password4j.com/images/preview.jpg" />
-		<meta property="og:image:width" content="1200" />
-		<meta property="og:image:height" content="627" />
-		<link rel="apple-touch-icon" sizes="57x57" href="icons/apple-icon-57x57.png">
-		<link rel="apple-touch-icon" sizes="60x60" href="icons/apple-icon-60x60.png">
-		<link rel="apple-touch-icon" sizes="72x72" href="icons/apple-icon-72x72.png">
-		<link rel="apple-touch-icon" sizes="76x76" href="icons/apple-icon-76x76.png">
-		<link rel="apple-touch-icon" sizes="114x114" href="icons/apple-icon-114x114.png">
-		<link rel="apple-touch-icon" sizes="120x120" href="icons/apple-icon-120x120.png">
-		<link rel="apple-touch-icon" sizes="144x144" href="icons/apple-icon-144x144.png">
-		<link rel="apple-touch-icon" sizes="152x152" href="icons/apple-icon-152x152.png">
-		<link rel="apple-touch-icon" sizes="180x180" href="icons/apple-icon-180x180.png">
-		<link rel="icon" type="image/png" sizes="192x192" href="icons/android-icon-192x192.png">
-		<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
-		<link rel="icon" type="image/png" sizes="96x96" href="icons/favicon-96x96.png">
-		<link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
-		<link rel="manifest" href="/manifest.json">
-		<meta name="msapplication-TileColor" content="#ffffff">
-		<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
-		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.1/cookieconsent.min.css" />
-		<link rel="stylesheet" href="css/style.css">
-		<link rel="canonical" href="https://password4j.com" />
-		<link rel="manifest" data-n-head="true" href="manifest.json" />
-		
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent/3.1.1/cookieconsent.min.js" integrity="sha512-yXXqOFjdjHNH1GND+1EO0jbvvebABpzGKD66djnUfiKlYME5HGMUJHoCaeE4D5PTG2YsSJf6dwqyUUvQvS0vaA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-		<script type="text/javascript" src="scripts.js"></script>
-		<script type="application/ld+json">
-			{
-				"@context": "http://schema.org/",
-				"@type": "SoftwareSourceCode",
-				"description": "Hash and protect passwords in Java and Android with secure algorithms like Argon2, bcrypt, scrypt and PBKDF2.",
-				"image": "https://password4j.com/images/preview.jpg",
-				"name": "Password4j",
-				"url": "https://github.com/Password4j/password4j"
-			}
-		</script>
-	</head>
-	<body>
-		<main>
-			<header id="header">
-				<h1 id="title">Password4j</h1>
-				<h2>Encrypting passwords in Java</h2>
-				<a href="https://github.com/Password4j/password4j/actions/workflows/build.yml">
-					<img src="https://github.com/Password4j/password4j/actions/workflows/build.yml/badge.svg" alt="Build Status">
-				</a>
-				<a href="https://maven-badges.herokuapp.com/maven-central/com.password4j/password4j" rel="nofollow">
-					<img src="https://maven-badges.herokuapp.com/maven-central/com.password4j/password4j/badge.svg?color=purple" alt="Maven Central">
-				</a>
-				<a href="https://docs.oracle.com/javase/8/" rel="nofollow">
-					<img src="https://img.shields.io/badge/JDK-8%2B-007396" alt="Java 8 or higher">
-				</a>
-				<a href="https://developer.android.com/about/versions/lollipop4" rel="nofollow">
-					<img src="https://img.shields.io/badge/Android-5.0%2B-3DDC84" alt="Android 5.0 or higher">
-				</a>
-				<a href="https://github.com/sindresorhus/awesome" rel="nofollow">
-					<img src="https://awesome.re/mentioned-badge.svg" alt="Awesome">
-				</a>
-			</header>
-			<div class="container">
-				<div class="item">
-					<a href="https://github.com/Password4j/password4j/wiki/Setting-up-Password4j" target="_blank" rel="noopener">
-						<i class="fas fa-rocket"></i>
-						<span class="caption">Get started</span>
-					</a>
-				</div>
-				<div class="item">
-					<a href="https://github.com/Password4j/password4j" target="_blank" rel="noopener">
-						<i class="fab fa-github"></i>
-						<span class="caption">Source</span>
-					</a>
-				</div>
-				<div class="item">
-					<a href="https://github.com/Password4j/site/zipball/master" rel="noopener">
-						<i class="fas fa-cloud-download-alt"></i>
-						<span class="caption">Download</span>
-					</a>
-				</div>
-			</div>
-			<article>
-				<p style=" margin-bottom: 2rem;"> Password4j is a Java fluent cryptographic library for encrypting and checking passwords with different
-					<a href="https://en.wikipedia.org/wiki/Key_derivation_function" target="_blank" rel="noopener">Key derivation functions</a> (KDFs) and <a href="https://en.wikipedia.org/wiki/Cryptographic_hash_function" target="_blank" rel="noopener">Cryptographic hash functions</a> (CHFs).
-				</p>
-				<p>You can encrypt passwords with</p>
-				<div class="container2">
-					<div class="item">
-						<a href="https://github.com/Password4j/password4j/wiki/Argon2" target="_blank" rel="noopener">
-							<strong>Argon2</strong>
-						</a>
-					</div>
-					<div class="item">
-						<a href="https://github.com/Password4j/password4j/wiki/Scrypt" target="_blank" rel="noopener">
-							<strong>scrypt</strong>
-						</a>
-					</div>
-				</div>
-				<div class="container2">
-					<div class="item">
-						<a href="https://github.com/Password4j/password4j/wiki/BCrypt" target="_blank" rel="noopener">
-							<strong>bcrypt</strong>
-						</a>
-					</div>
-					<div class="item">
-						<a href="https://github.com/Password4j/password4j/wiki/PBKDF2" target="_blank" rel="noopener">
-							<strong>PBKDF2</strong>
-						</a>
-					</div>
-				</div>
-				</div>
-				<p>Use Password4j when you need to</p>
-				<ul class="fa-ul">
-					<li>
-						<span class="fa-li">
-							<i class="fas fa-check"></i>
-						</span>Use the most modern and secure hashing cryptographic functions
-					</li>
-					<li>
-						<span class="fa-li">
-							<i class="fas fa-check"></i>
-						</span>Change the configuration of the algorithm without your users having to reset their password
-					</li>
-					<li>
-						<span class="fa-li">
-							<i class="fas fa-check"></i>
-						</span>Keep your application OS-independent ( <i>e.g.</i> you don't want to rely on <a href="https://en.wikipedia.org/wiki/Java_Native_Interface" target="_blank" rel="noopener">JNI</a>)
-					</li>
-					<li>
-						<span class="fa-li">
-							<i class="fas fa-check"></i>
-						</span>Choose the algorithms' parameters depending on your system capabilities
-					</li>
-					<li>
-						<span class="fa-li">
-							<i class="fas fa-check"></i>
-						</span>Make your application using unsecure hashing functions (like MD5 or SHA) compliant to organizational standards
-					</li>
-				</ul>
-			</article>
-			<hr />
-			<article>
-				<h2>What is hashing</h2>
-				<p style=" margin-bottom: 2rem;">Hashing is the process of generating a string, or hash or digest, from a given message using a function known as a <em>Cryptographic hash function</em>. Cryptographic hash functions have many properties: </p>
-				<ul class="fa-ul">
-					<li>
-						<span class="fa-li">
-							<i class="fa fa-arrow-right"></i>
-						</span>
-						<strong>Deterministic:</strong> the same message processed by the same hash function must always produce the same hash
-					</li>
-					<li>
-						<span class="fa-li">
-							<i class="fa fa-arrow-right"></i>
-						</span>
-						<strong>Pre-Image Resistance:</strong> given the hash, it must be computationally impracticable to search for an input string that gives the same hash
-					</li>
-					<li>
-						<span class="fa-li">
-							<i class="fa fa-arrow-right"></i>
-						</span>
-						<strong>Second Pre-Image Resistance:</strong>given an input and its hash, it must be computationally impracticable to search for a different input string that gives the same hash
-					</li>
-					<li>
-						<span class="fa-li">
-							<i class="fa fa-arrow-right"></i>
-						</span>
-						<strong>Collision Resistance:</strong> it must be computationally impracticable to search for two different input strings that gives the same hash
-					</li>
-				</ul> Also, though, password hashing functions must be slow. A fast algorithm would aid <a href="https://en.wikipedia.org/wiki/Brute-force_attack" target="_blank" rel="noopener">brute force attacks</a> in which a hacker will attempt to guess a password by hashing and comparing billions (or trillions) of potential passwords per second. </p>
-			</article>
-			<article>
-				<h2>What algorithm to choose</h2>
-				<p style=" margin-bottom: 2rem;">This is not a security advice, but here some hints:</p>
-				<ul class="fa-ul">
-					<li>
-						<span class="fa-li">
-							<i class="fas fa-check"></i>
-						</span>
-						<strong>Argon2</strong>: resistant to GPU/ASIC attacks, TMTO attacks and <a href="https://en.wikipedia.org/wiki/Side-channel_attack" target="_blank" rel="noopener">side channel attacks</a> but may require a lot of resources. <br/>
-						OWASP recommends using it with minimum configuration of 15 MiB of memory, an iteration count of 2, and 1 degree of parallelism
-					</li>
-					<li>
-						<span class="fa-li">
-							<i class="fas fa-check"></i>
-						</span>
-						<strong>scrypt</strong>: gains an arbitrary level of parallelism over bcrypt. When slow enough, can resist to GPU/ASIC attacks but it is weak to TMTO attacks.<br/>
-						OWAPS recommends using it (if Argon2's adoption is not feasible) with a minimum CPU/memory cost parameter of (2^16), a minimum block size of 8 (1024 bytes), and a parallelization parameter of 1
-					</li>
-					<li>
-						<span class="fa-li">
-							<i class="fas fa-check"></i>
-						</span>
-						<strong>bcrypt</strong>: a general better choice than PBKDF2. It suffers against GPU/ASIC attacks but it is resistant to <a href="https://en.wikipedia.org/wiki/Time/memory/data_tradeoff_attack" target="_blank" rel="noopener">TMTO</a> attacks. <br/>
-						OWAPS recommends using it (if scrypt's adoption is not feasible) with a work factor of 10 or more and with a password limit of 72 bytes
-					</li>
-					<li>
-						<span class="fa-li">
-							<i class="fas fa-circle"></i>
-						</span>
-						<strong>PBKDF2</strong>: very weak to GPU/ <a href="https://en.wikipedia.org/wiki/Application-specific_integrated_circuit" target="_blank" rel="noopener">ASIC</a> attacks, due to its small consumption of memory. It is still commonly seen in enterprise web applications. <br/><a href="https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html" target="_blank" rel="noopener">OWASP</a> recommends using it with a work factor of 310,000 or more and with an internal hash function of HMAC-SHA-256 in case bcrypt is not available
-					</li>
-					<li>
-						<span class="fa-li">
-							<i class="fa fa-times"></i>
-						</span>
-						<strong>MD5</strong>: never use it. Password4j still maintains this function just to make the transition to stronger algorithms easier. If your project still uses MD5 
-						to hash passwords you have a severe security issue. Please follow <a href="https://github.com/Password4j/password4j/blob/master/examples/MigrateFromMD5.java" target="_blank" rel="noopener">this example</a> in order to fix the problem.
-					</li>
-				</ul>
-				<p><a href="https://github.com/Password4j/password4j/wiki/Setting-up-Password4j" target="_blank" rel="noopener">Upgrade now your project!</a></p>
-			</article>
-			<article>
-				<h2>JCA compliancy</h2>
-				<p>Yes! The side project <a href="https://github.com/Password4j/password4j-jca" target="_blank" rel="noopener">Password4j-JCA</a> extends the Java Cryptography Architecture so that you can use all the
-				algorithms provided by Password4j. Because of the nature of the Security Providers, this library is compatible with Java 9 and up.</p>
-				<p><a href="https://github.com/Password4j/password4j-jca" target="_blank" rel="noopener">Give it a try!</a></p> 
-			</article>
-			<footer>Password4j &copy; 2022</footer>
-		</main>
-	</body>
+  <head>
+    <title>Password4j | Password encryption for Java</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="David Bertoldi" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta charset="utf-8" name="description" content="Encrypt and protect passwords in Java and Android with secure algorithms like Argon2, bcrypt, scrypt and PBKDF2." />
+    <meta name="keywords" content="encryption, password, java, argon2, scrypt, bcrypt, pbkdf2, md5, hash, cryptography">
+    <meta name="robots" content="index,follow" />
+    <meta name="subject" content="Hash and protect passwords in Java" />
+    <meta name="rating" content="General" />
+    <meta property="og:url" content="https://password4j.com" />
+    <meta property="og:title" content="Password4j" />
+    <meta property="og:description" content="Hash and protect passwords in Java and Android with secure algorithms like Argon2, bcrypt, scrypt and PBKDF2." />
+    <meta property="og:image" content="https://password4j.com/images/preview.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="627" />
+    <link rel="apple-touch-icon" sizes="57x57" href="icons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="icons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="icons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="icons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="icons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="icons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="icons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="icons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="icons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="icons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="canonical" href="https://password4j.com" />
+    <link rel="manifest" data-n-head="true" href="manifest.json" />
+    <script type="text/javascript" src="scripts.js"></script>
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.org/",
+        "@type": "SoftwareSourceCode",
+        "description": "Hash and protect passwords in Java and Android with secure algorithms like Argon2, bcrypt, scrypt and PBKDF2.",
+        "image": "https://password4j.com/images/preview.jpg",
+        "name": "Password4j",
+        "url": "https://github.com/Password4j/password4j"
+      }
+    </script>
+  </head>
+  <body>
+    <nav class="topnav" id="myTopnav">
+      <a class="entry blue" href="#about">Source</a>
+      <a class="entry" href="#contact">Documentation</a>
+      <a class="entry green" href="get-started.html">Get started </span>
+        <a href="javascript:void(0);" class="icon" onclick="menu()">
+          <i class="fa fa-bars"></i>
+        </a>
+    </nav>
+    <header class="hero">
+      <div class="hero_content">
+        <a href="index.html">
+          <h1 class="hero_text">Password4j</h1>
+        </a>
+        <p class="hero_description">Password encryption for Java</p>
+      </div>
+    </header>
+    <main>
+      <div class="badges">
+        <a href="https://github.com/Password4j/password4j/actions/workflows/build.yml" target="_blank" rel="nofollow">
+          <div class="badge mobile-hidden">
+            <div class="name">
+              <span>
+                <i class="fab fa-github"></i> build </span>
+            </div>
+            <div class="status green">
+              <span>passing</span>
+            </div>
+          </div>
+        </a>
+        <a href="https://central.sonatype.dev/artifact/com.password4j/password4j/1.6.1" target="_blank" rel="nofollow">
+          <div class="badge">
+            <div class="name">
+              <span>maven central</span>
+            </div>
+            <div class="status purple">
+              <span>1.6.1</span>
+            </div>
+          </div>
+        </a>
+        <a href="https://docs.oracle.com/javase/8/" target="_blank" rel="nofollow">
+          <div class="badge">
+            <div class="name">
+              <span>Java</span>
+            </div>
+            <div class="status blue">
+              <span>8+</span>
+            </div>
+          </div>
+        </a>
+        <a href="https://developer.android.com/about/versions/lollipop" target="_blank" rel="nofollow">
+          <div class="badge">
+            <div class="name">
+              <span>Android</span>
+            </div>
+            <div class="status water">
+              <span>5.0+</span>
+            </div>
+          </div>
+        </a>
+        <a href="https://github.com/sindresorhus/awesome" target="_blank" rel="nofollow">
+          <div class="badge mobile-hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="0 0 110 20">
+              <defs>
+                <filter id="a" filterUnits="userSpaceOnUse" x="0" y="0" width="111" height="20">
+                  <feColorMatrix values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0" />
+                </filter>
+              </defs>
+              <mask maskUnits="userSpaceOnUse" x="0" y="0" width="111" height="20" id="b">
+                <path fill="#FFF" filter="url(#a)" d="M3 0h104c1.66 0 3 1.34 3 3v14c0 1.66-1.34 3-3 3H3c-1.66 0-3-1.34-3-3V3c0-1.66 1.34-3 3-3z" />
+              </mask>
+              <g mask="url(#b)">
+                <path fill="#CCA6C4" d="M0 0h34v20H0V0z" />
+                <path fill="#494368" d="M34 0h77v20H34V0z" />
+                <linearGradient id="c" gradientUnits="userSpaceOnUse" x1="-261.122" y1="239.55" x2="-261.122" y2="238.55" gradientTransform="matrix(111 0 0 -20 29040 4791)">
+                  <stop offset="0" stop-color="#BBB" stop-opacity=".1" />
+                  <stop offset="1" stop-opacity=".1" />
+                </linearGradient>
+                <path fill="url(#c)" d="M0 0h111v20H0V0z" />
+              </g>
+              <path d="M46.97 7.62c.42 0 .75.13 1.05.4.28.27.43.59.43.98v4.79h-5.24c-.42 0-.77-.13-1.05-.4s-.43-.59-.43-.98v-2.27h5.5V8.99c0-.07-.03-.12-.08-.16-.05-.04-.11-.07-.17-.07h-5.24V7.62h5.23zm.26 5.02v-1.36h-4.26v1.13c0 .07.03.12.08.16s.11.07.17.07h4.01zm11.86-5.02h1.3l-2.49 6.17h-1L54.68 9.2l-2.1 4.59-.03-.01.01.01h-1l-2.6-6.17h1.3l1.79 4.09 1.91-4.09h1.4l2.02 4.09 1.71-4.09zm6.95 0c.42 0 .77.13 1.05.4s.43.59.43.98v2.27h-5.5v1.13c0 .07.03.12.08.16.05.04.11.07.17.07h5.24v1.14h-5.24c-.42 0-.77-.13-1.05-.4s-.43-.59-.43-.98v-3.4c0-.38.15-.71.43-.98s.63-.4 1.05-.4h3.77v.01zm-4.01 2.5h4.26V8.99c0-.07-.03-.12-.08-.16s-.11-.07-.17-.07h-3.77c-.07 0-.12.03-.17.07s-.08.11-.08.16v1.13h.01zm13.35-1.13v.23h-1.22v-.23c0-.07-.03-.12-.08-.16s-.11-.07-.17-.07h-3.77c-.07 0-.12.03-.17.07s-.08.11-.08.16v.9c0 .07.03.12.08.16.05.04.11.07.17.07h3.77c.42 0 .75.13 1.05.4.28.27.43.59.43.98v.89c0 .38-.15.71-.43.98s-.63.4-1.05.4h-3.77c-.42 0-.77-.13-1.05-.4s-.43-.59-.43-.98v-.23h1.24v.23c0 .07.03.12.08.16.05.04.11.07.17.07h3.77c.07 0 .12-.03.17-.07.05-.04.08-.11.08-.16v-.89c0-.07-.03-.12-.08-.16-.05-.04-.11-.07-.17-.07h-3.77c-.42 0-.77-.13-1.05-.4s-.43-.59-.43-.98v-.9c0-.38.15-.71.43-.98s.63-.4 1.05-.4h3.77c.42 0 .75.13 1.05.4.27.28.41.61.41.98zm2.6-1.37h3.77c.42 0 .77.13 1.05.4s.43.59.43.98v3.4c0 .38-.15.71-.43.98s-.63.4-1.05.4h-3.77c-.42 0-.77-.13-1.05-.4s-.43-.59-.43-.98V8.99c0-.38.15-.71.43-.98.3-.26.65-.39 1.05-.39zm3.77 1.14h-3.77c-.07 0-.12.03-.17.07s-.08.11-.08.16v3.4c0 .07.03.12.08.16s.11.07.17.07h3.77c.07 0 .12-.03.17-.07s.08-.11.08-.16v-3.4c0-.07-.03-.12-.08-.16-.04-.04-.1-.07-.17-.07zm11.12-1.14c.42 0 .75.13 1.05.4.28.27.43.59.43.98v4.79h-1.22v-4.8c0-.07-.03-.12-.08-.16s-.11-.07-.19-.07h-2.61c-.07 0-.12.03-.17.07s-.08.11-.08.16v4.79h-1.24V8.99c0-.07-.03-.12-.08-.16s-.11-.07-.17-.07h-2.62c-.07 0-.12.03-.17.07-.05.04-.08.11-.08.16v4.79H84.4V7.62h8.47zm7.92 0c.42 0 .77.13 1.05.4s.43.59.43.98v2.27h-5.5v1.13c0 .07.03.12.08.16.05.04.11.07.17.07h5.24v1.14h-5.24c-.42 0-.77-.13-1.05-.4s-.43-.59-.43-.98v-3.4c0-.38.15-.71.43-.98s.63-.4 1.05-.4h3.77v.01zm-4.02 2.5h4.26V8.99c0-.07-.03-.12-.08-.16s-.11-.07-.17-.07h-3.77c-.07 0-.12.03-.17.07s-.08.11-.08.16v1.13h.01z" />
+              <path d="M46.97 6.92c.42 0 .75.13 1.05.4.28.27.43.59.43.98v4.79h-5.24c-.42 0-.77-.13-1.05-.4s-.43-.59-.43-.98V9.44h5.5V8.29c0-.07-.03-.12-.08-.16-.05-.04-.11-.07-.17-.07h-5.24V6.92h5.23zm.26 5.02v-1.36h-4.26v1.13c0 .07.03.12.08.16s.11.07.17.07h4.01zm11.86-5.02h1.3l-2.49 6.17h-1L54.68 8.5l-2.1 4.59-.03-.01.01.01h-1l-2.6-6.17h1.3l1.79 4.09 1.91-4.09h1.4l2.02 4.09 1.71-4.09zm6.95 0c.42 0 .77.13 1.05.4s.43.59.43.98v2.27h-5.5v1.13c0 .07.03.12.08.16.05.04.11.07.17.07h5.24v1.14h-5.24c-.42 0-.77-.13-1.05-.4s-.43-.59-.43-.98v-3.4c0-.38.15-.71.43-.98s.63-.4 1.05-.4h3.77v.01zm-4.01 2.5h4.26V8.29c0-.07-.03-.12-.08-.16-.05-.04-.11-.07-.17-.07h-3.77c-.07 0-.12.03-.17.07-.05.04-.08.11-.08.16v1.13h.01zm13.35-1.13v.23h-1.22v-.23c0-.07-.03-.12-.08-.16-.05-.04-.11-.07-.17-.07h-3.77c-.07 0-.12.03-.17.07-.05.04-.08.11-.08.16v.9c0 .07.03.12.08.16s.11.07.17.07h3.77c.42 0 .75.13 1.05.4.28.27.43.59.43.98v.89c0 .38-.15.71-.43.98s-.63.4-1.05.4h-3.77c-.42 0-.77-.13-1.05-.4s-.43-.59-.43-.98v-.23h1.24v.23c0 .07.03.12.08.16.05.04.11.07.17.07h3.77c.07 0 .12-.03.17-.07.05-.04.08-.11.08-.16v-.89c0-.07-.03-.12-.08-.16-.05-.04-.11-.07-.17-.07h-3.77c-.42 0-.77-.13-1.05-.4s-.43-.59-.43-.98v-.9c0-.38.15-.71.43-.98s.63-.4 1.05-.4h3.77c.42 0 .75.13 1.05.4.27.28.41.61.41.98zm2.6-1.37h3.77c.42 0 .77.13 1.05.4s.43.59.43.98v3.4c0 .38-.15.71-.43.98s-.63.4-1.05.4h-3.77c-.42 0-.77-.13-1.05-.4s-.43-.59-.43-.98V8.29c0-.38.15-.71.43-.98.3-.26.65-.39 1.05-.39zm3.77 1.14h-3.77c-.07 0-.12.03-.17.07-.05.04-.08.11-.08.16v3.4c0 .07.03.12.08.16s.11.07.17.07h3.77c.07 0 .12-.03.17-.07s.08-.11.08-.16v-3.4c0-.07-.03-.12-.08-.16-.04-.04-.1-.07-.17-.07zm11.12-1.14c.42 0 .75.13 1.05.4.28.27.43.59.43.98v4.79h-1.22v-4.8c0-.07-.03-.12-.08-.16-.05-.04-.11-.07-.19-.07h-2.61c-.07 0-.12.03-.17.07-.05.04-.08.11-.08.16v4.79h-1.24V8.29c0-.07-.03-.12-.08-.16-.05-.04-.11-.07-.17-.07h-2.62c-.07 0-.12.03-.17.07-.05.04-.08.11-.08.16v4.79H84.4V6.92h8.47zm7.92 0c.42 0 .77.13 1.05.4s.43.59.43.98v2.27h-5.5v1.13c0 .07.03.12.08.16.05.04.11.07.17.07h5.24v1.14h-5.24c-.42 0-.77-.13-1.05-.4s-.43-.59-.43-.98v-3.4c0-.38.15-.71.43-.98s.63-.4 1.05-.4h3.77v.01zm-4.02 2.5h4.26V8.29c0-.07-.03-.12-.08-.16-.05-.04-.11-.07-.17-.07h-3.77c-.07 0-.12.03-.17.07-.05.04-.08.11-.08.16v1.13h.01z" fill="#FFF" />
+              <path fill="#DDA4CA" d="M26.57 9.76l-4.91-4.5-.69.75 4.09 3.75H8.94l4.09-3.75-.69-.75-4.91 4.5v2.97c0 1.34 1.29 2.43 2.88 2.43h3.03c1.59 0 2.88-1.09 2.88-2.43v-1.95h1.57v1.95c0 1.34 1.29 2.43 2.88 2.43h3.03c1.59 0 2.88-1.09 2.88-2.43l-.01-2.97z" />
+              <path fill="#261120" d="M26.57 9.34l-4.91-4.5-.69.75 4.09 3.75H8.94l4.09-3.75-.69-.75-4.91 4.5v2.97c0 1.34 1.29 2.43 2.88 2.43h3.03c1.59 0 2.88-1.09 2.88-2.43v-1.95h1.57v1.95c0 1.34 1.29 2.43 2.88 2.43h3.03c1.59 0 2.88-1.09 2.88-2.43l-.01-2.97z" />
+            </svg>
+          </div>
+        </a>
+      </div>
+      <article>
+        
+        <p>Password4j is a Java fluent cryptographic library specialised on password encryption with different
+          <a href="https://en.wikipedia.org/wiki/Key_derivation_function" class="link" target="_blank" rel="noopener">Key derivation functions</a> (KDFs) 
+          and <a href="https://en.wikipedia.org/wiki/Cryptographic_hash_function" class="link" target="_blank" rel="noopener">Cryptographic hash functions</a> (CHFs).</p>
+        <p>Protect passwords with methodologies recommended by <a href="https://owasp.org/" class="link" target="_blank" rel="noopener">OWASP</a>
+        with few and portable configurations, free of dependencies, run on a battle-tested implementation in pure Java. Free of charge.</p>
+        <p>Use Password4j when you need to</p>
+        <ul class="fa-ul">
+          <li>
+            <span class="fa-li">
+              <i class="far fa-check-circle"></i>
+            </span>Use the most modern and secure hashing cryptographic functions
+          </li>
+          <li>
+            <span class="fa-li">
+              <i class="far fa-check-circle"></i>
+            </span>Change the configuration of the algorithm without your users having to reset their password
+          </li>
+          <li>
+            <span class="fa-li">
+              <i class="far fa-check-circle"></i>
+            </span>Keep your application OS-independent ( <i>e.g.</i> you don't want to rely on <a href="https://en.wikipedia.org/wiki/Java_Native_Interface" class="link" target="_blank" rel="noopener">JNI</a>)
+          </li>
+          <li>
+            <span class="fa-li">
+              <i class="far fa-check-circle"></i>
+            </span>Choose the algorithms' parameters depending on your system capabilities
+          </li>
+          <li>
+            <span class="fa-li">
+              <i class="far fa-check-circle"></i>
+            </span>Make your application using unsecure hashing functions (like MD5 or SHA) compliant to organizational standards
+          </li>
+        </ul>
+      </article>
+      <div class="container-text-image flex-direction">
+      <div class="image">
+        <img src="https://i.imgur.com/lraxCg5.png" height="400px" />
+      </div>
+      <div class="text">
+        <article>
+          <h2>Made easy for developers</h2>
+          
+          
+          <p>Compliant to industry-standards.</p>
+          <p>Impossible to do it wrong.</p>
+          <p>Just one line of code.</p>
+
+        </article>
+      </div>
+  </div>
+      <article>
+        <h2>What is hashing</h2>
+        <p>Hashing is the process of generating a string, or hash or digest, from a given message using a function known as a Cryptographic hash function. Cryptographic hash functions have many properties:</p>
+        <ul class="fa-ul">
+          <li>
+            <span class="fa-li">
+              <i class="fa fa-arrow-right"></i>
+            </span>
+            <strong>Deterministic:</strong> the same message processed by the same hash function must always produce the same hash
+          </li>
+          <li>
+            <span class="fa-li">
+              <i class="fa fa-arrow-right"></i>
+            </span>
+            <strong>Pre-Image Resistance:</strong> given the hash, it must be computationally impracticable to search for an input string that gives the same hash
+          </li>
+          <li>
+            <span class="fa-li">
+              <i class="fa fa-arrow-right"></i>
+            </span>
+            <strong>Second Pre-Image Resistance:</strong>given an input and its hash, it must be computationally impracticable to search for a different input string that gives the same hash
+          </li>
+          <li>
+            <span class="fa-li">
+              <i class="fa fa-arrow-right"></i>
+            </span>
+            <strong>Collision Resistance:</strong> it must be computationally impracticable to search for two different input strings that gives the same hash
+          </li>
+        </ul>
+      </article>
+    </main>
+  </body>
 </html>
