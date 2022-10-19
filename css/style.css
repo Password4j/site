@@ -48,7 +48,7 @@ main {
 	
 }
 
-@media screen and (max-width: 1080) {
+@media screen and (max-width: 1200px) {
 	article {
 		padding: 0 20px;
 	}
@@ -67,7 +67,7 @@ article h2 {
 article p {
 	text-align: justify;
 	font-size: 18px;
-	margin-bottom: 30px;
+	margin-bottom: 45px;
 }
 
 @media screen and (min-width: 320px) {
@@ -149,7 +149,7 @@ body {
 	margin-bottom: 0.7rem;
 }
 
-.fa-li .far, .fa-li .fa{
+.fa-li .far, .fa-li .fa, .fa-li .fas {
 	
     background: #d6249f;
     background: linear-gradient(0deg, #9c47fc, #356ad2);
@@ -210,7 +210,7 @@ body {
 		background: rgba(0, 0, 0, 0.4);
 		backdrop-filter: blur(5px);
 		-webkit-backdrop-filter: blur(5px);
-		transition: 0.7s;
+		
 		height: 100%;
 		box-sizing: border-box;
 		padding-top: 60px;
@@ -235,7 +235,7 @@ body {
 	text-decoration: none;
 	position: relative;
 	overflow: hidden;
-	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background: linear-gradient(45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
 	background-size: 400% 400%;
 	animation: gradient 15s ease infinite;
 }
@@ -247,7 +247,6 @@ body {
 	right: 0;
 	left: 0;
 	height: 6em;
-	box-shadow: 0px 0px 10px 7px rgba(1, 1, 1, 0.45);
 	transform: skew(0, -2deg) translate(0, 100%);
 	transform-origin: bottom left;
 	background: white;
@@ -371,67 +370,186 @@ div.badge div span {
 
 
 
-
-
-
-.container-text-image{
+.container-text-image, .container-text-image-reverse {
   display:inline-flex;
   flex-wrap:wrap;
   width: 100%;
   margin-top: 100px;
+  flex-direction: row-reverse;
+}
+
+
+.container-text-image-reverse {
+  display:inline-flex;
+  flex-wrap:wrap;
+  width: 100%;
+  margin-top: 100px;
+  flex-direction: row;
 }
 
 .flex-direction{
-  flex-direction: row-reverse;
+  
 }
 
 .container-text-image .image {
 
-  background: linear-gradient(-45deg, #2196f3, #f44336);
+  background: linear-gradient(-22deg, #c423ff, #2196f3, #f44336 );
 	background-size: 150% 150%;
 	animation: gradient 5s ease infinite;
   width:50%;
   border-top-left-radius: 70px;
   border-bottom-left-radius: 70px;
+  float: left;
 
 }
 
-.container-text-image .image img{
+.container-text-image-reverse .image {
 
-  margin:  20px 20px;
+  background: linear-gradient(-22deg, #00c9ff, #92fe9d);
+	background-size: 150% 150%;
+	animation: gradient 5s ease infinite;
+  width:50%;
+  border-top-right-radius: 70px;
+  border-bottom-right-radius: 70px;
+
+}
+
+.container-text-image .image img, .container-text-image-reverse .image img {
+
+  margin:  2% 2%;
+  
+}
+
+.container-text-image-reverse .image img {
+
+  float: right;
   
 }
 
 .container-text-image .text{
-	max-width: 630px;
   width:50%;
-  padding-right: 30px;
-  text-align: right;
+  margin: auto;
 }
 
-.container-text-image .text h2 {
-	font-size: 3rem;
+.container-text-image-reverse .text{
+	width:50%;
+  margin: auto;
+}
+
+.container-text-image .text h2, .container-text-image-reverse .text h2 {
+	font-size: 2rem;
+	margin-bottom: 25px;
+}
+
+.container-text-image .inner_text {
+	float: right;
+	width: 70%;
+	padding-right: 4%;
 }
 
 .container-text-image .text p {
-	font-size: 1.4rem;
-	text-align: right;
+	font-size: 1rem;
+	margin-bottom: 25px;
+}
+
+.container-text-image-reverse .inner_text {
+	float: left;
+	width: 70%;
+	padding-left: 4%;
+}
+
+.container-text-image-reverse .text p {
+	font-size: 1.1rem;
+	text-align: justify;
+	margin-bottom: 25px;
 }
 
 
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 1200px) {
+  
+
   .flex-direction{
-  flex-direction:column;
+  flex-direction:column-reverse;
   }
-.container-text-image .image{
-  width:202px;
-  height:131px;
+
+
+	.container-text-image .image, .container-text-image-reverse .image{
+  background: rgba(0,0,0,0);
+  width: 100%;
+  text-align: center;
   }
-  ..container-text-image .text{
-    width:202px;
-    height:107px;
+
+  .container-text-image .image img, .container-text-image-reverse .image img{
+  min-width: 600px;
+	margin: auto;
+	float: none;
+  }
+  .container-text-image .text, .container-text-image-reverse .text{
+    width: 100%;
+  }
+
+  .container-text-image .inner_text,  .container-text-image-reverse .inner_text{
+    max-width: 1080px;
+	margin: auto;
+	width: auto;
+	padding: 0;
+	float: none;
+	padding: 0 20px;
+  }
+
+
+  
+  
+}
+
+@media screen and (max-width: 600px) {
+  
+
+  .container-text-image .image, .container-text-image-reverse .image{
+  display: none;
   }
   
   
+}
+
+.footer {
+	display: block;
+	text-decoration: none;
+	position: relative;
+	overflow: hidden;
+	background: linear-gradient(45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+}
+
+.footer:before {
+	content: "";
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	height: 5em;
+	transform: skew(0, -2deg) translate(0, 0%);
+	transform-origin: top left;
+	background: white;
+}
+
+.footer_content {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 10em;
+
+}
+
+.footer_description {
+	
+	color: white;
+	text-align: center;
+	
+	font-size: 1rem;
+	text-shadow: 0px 0px 10px rgba(1, 1, 1, 0.45);
+	margin: 0;
 }

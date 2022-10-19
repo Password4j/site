@@ -51,9 +51,9 @@
   </head>
   <body>
     <nav class="topnav" id="myTopnav">
-      <a class="entry blue" href="#about">Source</a>
-      <a class="entry" href="#contact">Documentation</a>
-      <a class="entry green" href="get-started.html">Get started </span>
+      <a class="entry " href="https://github.com/Password4j/password4j" target="_blank" rel="nofollow">Source</a>
+      <a class="entry" href="https://javadoc.io/doc/com.password4j/password4j/latest/index.html" target="_blank" rel="nofollow">Documentation</a>
+      <a class="entry " href="https://github.com/Password4j/password4j/wiki/Setting-up-Password4j" target="_blank" rel="nofollow">Get started </span>
         <a href="javascript:void(0);" class="icon" onclick="menu()">
           <i class="fa fa-bars"></i>
         </a>
@@ -143,7 +143,7 @@
           <a href="https://en.wikipedia.org/wiki/Key_derivation_function" class="link" target="_blank" rel="noopener">Key derivation functions</a> (KDFs) 
           and <a href="https://en.wikipedia.org/wiki/Cryptographic_hash_function" class="link" target="_blank" rel="noopener">Cryptographic hash functions</a> (CHFs).</p>
         <p>Protect passwords with methodologies recommended by <a href="https://owasp.org/" class="link" target="_blank" rel="noopener">OWASP</a>
-        with few and portable configurations, free of dependencies, run on a battle-tested implementation in pure Java. Free of charge.</p>
+        with few and portable configurations, free of dependencies, running on a battle-tested implementation in pure Java. Free of charge.</p>
         <p>Use Password4j when you need to</p>
         <ul class="fa-ul">
           <li>
@@ -175,23 +175,28 @@
       </article>
       <div class="container-text-image flex-direction">
       <div class="image">
-        <img src="https://i.imgur.com/lraxCg5.png" height="400px" />
+        <img src="https://i.imgur.com/Io30h7M.png" width="80%" alt="Encrypt passwords easily"/>
       </div>
       <div class="text">
-        <article>
+        <div class="inner_text">
           <h2>Made easy for developers</h2>
           
           
-          <p>Compliant to industry-standards.</p>
-          <p>Impossible to do it wrong.</p>
-          <p>Just one line of code.</p>
+          <p>Protect thousands of accounts with 
+            <a href="https://github.com/Password4j/password4j/wiki/Argon2" class="link" target="_blank" rel="noopener">Argon2</a>, 
+            <a href="https://github.com/Password4j/password4j/wiki/Scrypt" class="link" target="_blank" rel="noopener">scrypt</a>, 
+            <a href="https://github.com/Password4j/password4j/wiki/BCrypt" class="link" target="_blank" rel="noopener">bcrypt</a> or 
+            <a href="https://github.com/Password4j/password4j/wiki/PBKDF2" class="link" target="_blank" rel="noopener">PBKDF2</a>. </p>
+            <p>Add randomly generated <a href="https://en.wikipedia.org/wiki/Salt_%28cryptography%29" class="link" target="_blank" rel="noopener">salt</a> 
+              and <a href="https://en.wikipedia.org/wiki/Pepper_%28cryptography%29" class="link" target="_blank" rel="noopener">pepper</a> with a cryptographically strong random number generator.</p>
+            <p>With just a few lines of code.</p>
 
-        </article>
+        </div>
       </div>
   </div>
       <article>
         <h2>What is hashing</h2>
-        <p>Hashing is the process of generating a string, or hash or digest, from a given message using a function known as a Cryptographic hash function. Cryptographic hash functions have many properties:</p>
+        <p>Hashing is the process of generating a string, or hash or digest, from a given message using a function known as a Cryptographic hash function. Cryptographic hash functions have many properties:
         <ul class="fa-ul">
           <li>
             <span class="fa-li">
@@ -218,7 +223,79 @@
             <strong>Collision Resistance:</strong> it must be computationally impracticable to search for two different input strings that gives the same hash
           </li>
         </ul>
+        </p>
+        <p>
+        Also, password hashing functions must be slow. A fast algorithm would aid <a href="https://en.wikipedia.org/wiki/Brute-force_attack" class="link" target="_blank" rel="noopener">brute force attacks</a> in which a hacker will attempt to guess a password by hashing and comparing billions (or trillions) of potential passwords per second. </p>
+      </article>
+      <div class="container-text-image-reverse flex-direction">
+      <div class="image">
+        <img src="https://i.imgur.com/DIew2D6.png" width="80%" alt="Upgrade old algorithm"/>
+      </div>
+      <div class="text">
+        <div class="inner_text">
+          <h2>Upgrade your project</h2>
+          
+          <p>Don't worry about password security anymore. Even if in the past you made the wrong choices.</p>
+          <p>Get rid of old implementations now and get back on track!</p>
+
+        </div>
+      </div>
+  </div>
+
+  <article>
+    <h2>What algorithm to choose</h2>
+    <p>This is not a security advice, but here some hints:
+  <ul class="fa-ul">
+          <li>
+            <span class="fa-li">
+              <i class="fas fa-check"></i>
+            </span>
+            <strong>Argon2</strong>: resistant to GPU/ASIC attacks, TMTO attacks and <a href="https://en.wikipedia.org/wiki/Side-channel_attack" class="link" target="_blank" rel="noopener">side channel attacks</a> but may require a lot of resources. <br/>
+            OWASP recommends using it with minimum configuration of 15 MiB of memory, an iteration count of 2, and 1 degree of parallelism
+          </li>
+          <li>
+            <span class="fa-li">
+              <i class="fas fa-check"></i>
+            </span>
+            <strong>scrypt</strong>: gains an arbitrary level of parallelism over bcrypt. When slow enough, can resist to GPU/ASIC attacks but it is weak to TMTO attacks.<br/>
+            OWAPS recommends using it (if Argon2's adoption is not feasible) with a minimum CPU/memory cost parameter of 2<sup>16</sup>, a minimum block size of 8 (1024 bytes), and a parallelization parameter of 1
+          </li>
+          <li>
+            <span class="fa-li">
+              <i class="fas fa-check"></i>
+            </span>
+            <strong>bcrypt</strong>: a general better choice than PBKDF2. It suffers against GPU/ASIC attacks but it is resistant to <a href="https://en.wikipedia.org/wiki/Time/memory/data_tradeoff_attack" class="link" target="_blank" rel="noopener">TMTO</a> attacks. <br/>
+            OWAPS recommends using it (if scrypt's adoption is not feasible) with a work factor of 10 or more and with a password limit of 72 bytes
+          </li>
+          <li>
+            <span class="fa-li">
+              <i class="fas fa-exclamation-circle"></i>
+            </span>
+            <strong>PBKDF2</strong>: very weak to GPU/ <a href="https://en.wikipedia.org/wiki/Application-specific_integrated_circuit" class="link" target="_blank" rel="noopener">ASIC</a> attacks, due to its small consumption of memory. It is still commonly seen in enterprise web applications. <br/><a href="https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html" class="link" target="_blank" rel="noopener">OWASP</a> recommends using it with a work factor of 310,000 or more and with an internal hash function of HMAC-SHA-256 in case bcrypt is not available
+          </li>
+          <li>
+            <span class="fa-li">
+              <i class="fas fa-skull"></i>
+            </span>
+            <strong>MD5</strong>: never use it. Password4j still maintains this function just to make the transition to stronger algorithms easier. If your project still uses MD5 
+            to hash passwords you have a severe security issue. Please follow <a href="https://github.com/Password4j/password4j/blob/master/examples/MigrateFromMD5.java" class="link" target="_blank" rel="noopener">this example</a> in order to fix the problem.
+          </li>
+        </ul>
+        </p>
+        <p><a href="https://github.com/Password4j/password4j/wiki/Setting-up-Password4j" class="link" target="_blank" rel="noopener">Upgrade now your project!</a></p>
+      </article>
+      <article>
+        <h2>JCA compliancy</h2>
+        <p>The side project <a href="https://github.com/Password4j/password4j-jca" class="link" target="_blank" rel="noopener">Password4j-JCA</a> extends the Java Cryptography Architecture so that you can use all the
+        algorithms provided by Password4j. Because of the nature of the Security Providers, this library is compatible with Java 9 and up.</p>
+        <p><a href="https://github.com/Password4j/password4j-jca" class="link" target="_blank" rel="noopener">Give it a try!</a></p> 
       </article>
     </main>
+    <footer class="footer">
+      <div class="footer_content">
+       
+        <p class="footer_description">Password4j &copy; 2022</p>
+      </div>
+    </footer>
   </body>
 </html>
