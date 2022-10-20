@@ -254,31 +254,31 @@
             OWASP recommends using it with minimum configuration of 15 MiB of memory, an iteration count of 2, and 1 degree of parallelism</p>
           </li>
           <li>
-            <span class="fa-li">
+            <p><span class="fa-li">
               <i class="fas fa-check"></i>
             </span>
             <strong>scrypt</strong>: gains an arbitrary level of parallelism over bcrypt. When slow enough, can resist to GPU/ASIC attacks but it is weak to TMTO attacks.<br/>
-            OWAPS recommends using it (if Argon2's adoption is not feasible) with a minimum CPU/memory cost parameter of 2<sup>16</sup>, a minimum block size of 8 (1024 bytes), and a parallelization parameter of 1
+            OWAPS recommends using it (if Argon2's adoption is not feasible) with a minimum CPU/memory cost parameter of 2<sup>16</sup>, a minimum block size of 8 (1024 bytes), and a parallelization parameter of 1</p>
           </li>
           <li>
-            <span class="fa-li">
+            <p><span class="fa-li">
               <i class="fas fa-check"></i>
             </span>
             <strong>bcrypt</strong>: a general better choice than PBKDF2. It suffers against GPU/ASIC attacks but it is resistant to <a href="https://en.wikipedia.org/wiki/Time/memory/data_tradeoff_attack" class="link" target="_blank" rel="noopener">TMTO</a> attacks. <br/>
-            OWAPS recommends using it (if scrypt's adoption is not feasible) with a work factor of 10 or more and with a password limit of 72 bytes
+            OWAPS recommends using it (if scrypt's adoption is not feasible) with a work factor of 10 or more and with a password limit of 72 bytes</p>
           </li>
           <li>
-            <span class="fa-li">
+            <p><span class="fa-li">
               <i class="fas fa-exclamation-circle"></i>
             </span>
-            <strong>PBKDF2</strong>: very weak to GPU/ <a href="https://en.wikipedia.org/wiki/Application-specific_integrated_circuit" class="link" target="_blank" rel="noopener">ASIC</a> attacks, due to its small consumption of memory. It is still commonly seen in enterprise web applications. <br/><a href="https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html" class="link" target="_blank" rel="noopener">OWASP</a> recommends using it with a work factor of 310,000 or more and with an internal hash function of HMAC-SHA-256 in case bcrypt is not available
+            <strong>PBKDF2</strong>: very weak to GPU/ <a href="https://en.wikipedia.org/wiki/Application-specific_integrated_circuit" class="link" target="_blank" rel="noopener">ASIC</a> attacks, due to its small consumption of memory. It is still commonly seen in enterprise web applications. <br/><a href="https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html" class="link" target="_blank" rel="noopener">OWASP</a> recommends using it with a work factor of 310,000 or more and with an internal hash function of HMAC-SHA-256 in case bcrypt is not available</p>
           </li>
           <li>
             <span class="fa-li">
               <i class="fas fa-skull"></i>
             </span>
-            <strong>MD5</strong>: never use it. Password4j still maintains this function just to make the transition to stronger algorithms easier. If your project still uses MD5 
-            to hash passwords you have a severe security issue. Please follow <a href="https://github.com/Password4j/password4j/blob/master/examples/MigrateFromMD5.java" class="link" target="_blank" rel="noopener">this example</a> in order to fix the problem.
+            <p><strong>MD5</strong>: never use it. Password4j still maintains this function just to make the transition to stronger algorithms easier. If your project still uses MD5 
+            to hash passwords you have a severe security issue. Please follow <a href="https://github.com/Password4j/password4j/blob/master/examples/MigrateFromMD5.java" class="link" target="_blank" rel="noopener">this example</a> in order to fix the problem</p>
           </li>
         </ul>
         </p>
