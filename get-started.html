@@ -1,76 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<title>Password4j | Get Started</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="author" content="David Bertoldi" />
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta charset="utf-8" name="description" content="Encrypt and protect passwords in Java and Android with secure algorithms like Argon2, bcrypt, scrypt and PBKDF2." />
-		<meta name="keywords" content="encryption, password, java, argon2, scrypt, bcrypt, pbkdf2, md5, hash, cryptography">
-		<meta name="robots" content="index,follow" />
-		<meta name="subject" content="Hash and protect passwords in Java" />
-		<meta name="rating" content="General" />
-		<meta property="og:url" content="https://password4j.com" />
-		<meta property="og:title" content="Password4j" />
-		<meta property="og:description" content="Hash and protect passwords in Java and Android with secure algorithms like Argon2, bcrypt, scrypt and PBKDF2." />
-		<meta property="og:image" content="https://password4j.com/images/preview.jpg" />
-		<meta property="og:image:width" content="1200" />
-		<meta property="og:image:height" content="627" />
-		<link rel="apple-touch-icon" sizes="57x57" href="icons/apple-icon-57x57.png">
-		<link rel="apple-touch-icon" sizes="60x60" href="icons/apple-icon-60x60.png">
-		<link rel="apple-touch-icon" sizes="72x72" href="icons/apple-icon-72x72.png">
-		<link rel="apple-touch-icon" sizes="76x76" href="icons/apple-icon-76x76.png">
-		<link rel="apple-touch-icon" sizes="114x114" href="icons/apple-icon-114x114.png">
-		<link rel="apple-touch-icon" sizes="120x120" href="icons/apple-icon-120x120.png">
-		<link rel="apple-touch-icon" sizes="144x144" href="icons/apple-icon-144x144.png">
-		<link rel="apple-touch-icon" sizes="152x152" href="icons/apple-icon-152x152.png">
-		<link rel="apple-touch-icon" sizes="180x180" href="icons/apple-icon-180x180.png">
-		<link rel="icon" type="image/png" sizes="192x192" href="icons/android-icon-192x192.png">
-		<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
-		<link rel="icon" type="image/png" sizes="96x96" href="icons/favicon-96x96.png">
-		<link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
-		<link rel="manifest" href="/manifest.json">
-		<meta name="msapplication-TileColor" content="#ffffff">
-		<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
-		<link rel="stylesheet" href="css/style.css">
-		<link rel="canonical" href="https://password4j.com" />
-		<link rel="manifest" data-n-head="true" href="manifest.json" />
-		
-		<script type="text/javascript" src="scripts.js"></script>
-		<script type="application/ld+json">
-			{
-				"@context": "http://schema.org/",
-				"@type": "SoftwareSourceCode",
-				"description": "Hash and protect passwords in Java and Android with secure algorithms like Argon2, bcrypt, scrypt and PBKDF2.",
-				"image": "https://password4j.com/images/preview.jpg",
-				"name": "Password4j",
-				"url": "https://github.com/Password4j/password4j"
-			}
-		</script>
-	</head>
-	<body>
-		<nav class="topnav" id="myTopnav">
-				<a class="entry blue" href="#about">Source</a>
-				<a class="entry" href="#contact">Documentation</a>
-				<a class="entry green active" href="#">Get started</a>
-				<a href="javascript:void(0);" class="icon" onclick="menu()">
-					<i class="fa fa-bars"></i>
-				</a>
-			</nav>
-		<header class="hero">
+  <head>
+    <title>Password4j | Get started</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="David Bertoldi" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="description" content="Learn how to install and use Password4j" />
+    <meta name="keywords" content="encryption, installation, java, argon2, scrypt, bcrypt, pbkdf2, md5, hash, cryptography">
+    <meta name="robots" content="index,follow" />
+    <meta name="subject" content="Install Password4j" />
+    <meta name="rating" content="General" />
+    <meta property="og:url" content="https://password4j.com" />
+    <meta property="og:title" content="Password4j" />
+    <meta property="og:description" content="Learn how to install and use Password4j." />
+    <meta property="og:image" content="https://password4j.com/images/preview.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="627" />
+    <link rel="apple-touch-icon" sizes="57x57" href="icons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="icons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="icons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="icons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="icons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="icons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="icons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="icons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="icons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="icons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/panda-syntax-dark.min.css">
+    <link rel="canonical" href="https://password4j.com" />
+    <link rel="manifest" data-n-head="true" href="manifest.json" />
+
+	<script type="text/javascript" src="scripts/highlight.min.js"></script>
+    <script type="text/javascript" src="scripts/app.js"></script>
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.org/",
+        "@type": "SoftwareSourceCode",
+        "description": "Learn how to install and use Password4j",
+        "image": "https://password4j.com/images/preview.jpg",
+        "name": "Password4j",
+        "url": "https://github.com/Password4j/password4j"
+      }
+    </script>
+  </head>
+  <body>
+    <nav class="topnav" id="myTopnav">
+      <a class="entry" href="https://github.com/Password4j/password4j" target="_blank" rel="nofollow">Source</a>
+      <a class="entry" href="https://javadoc.io/doc/com.password4j/password4j/latest/index.html" target="_blank" rel="nofollow">Documentation</a>
+      <a class="entry" href="https://password4j.com/" rel="nofollow">Home</span>
+        <a href="javascript:void(0);" class="icon" onclick="menu()">
+          <i class="fa fa-bars"></i>
+        </a>
+    </nav>
+    <header class="hero">
+      <div class="hero_content">
+        <a href="index.html">
+          <h1 class="hero_text">Get started</h1>
+        </a>
+        <p class="hero_description">Password4j official guide</p>
+      </div>
+    </header>
+    <main>
+
+
+    	<article>
+    		<h2>Prerequisites</h2>
+    		<p>Password4j runs on <strong>Java 8 or higher</strong> by any vendor. You should not find any issue unless you are using a custom homemade JVM.</p>
+
+			<p>The minimum supported <strong>Android API level is 26</strong>.</p>
+    	</article>
+
+    	<article>
+    		<h2>Setup</h2>
+    		<p>If you are working on a Maven project, you can add the following dependency:
+    			<pre><code class="language-html">&lt;dependency&gt;
+    &lt;groupId>com.password4j&lt;/groupId&gt;
+    &lt;artifactId>password4j&lt;/artifactId&gt;
+    &lt;version>1.6.2&lt;/version&gt;
+&lt;/dependency&gt;</code></pre></p>
+
+    		<p>If you are not using Maven directly, you can still use the dependency from Maven dependency</p>
+
+			<h3>Gradle</h3>
+			<p>Add to your <code>build.gradle</code> module dependencies:
+				<pre><code class="language-gradle">repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'com.password4j:password4j:1.6.2'
+}</code></pre></p>
+
+			<h3>Scala SBT</h3>
+			<p>Add to the managed dependencies of your <code>build.sbt</code> the latest version:
+				<pre><code class="language-java">libraryDependencies += "com.password4j" % "password4j" % "1.6.2"</code></pre></p>
+
+			<h3>JAR</h3>
+			<p>Or you can download the JAR <a href="https://repo1.maven.org/maven2/com/password4j/password4j/" class="link" target="_blank" rel="noopener">here</a> and include it under your classpath.<p>
 			
-  			<div class="hero_content">
-    			<a href="index.html"><h1 class="hero_text">Password4j</h1></a>
-    			<p class="hero_description">Encrypt passwords in Java</p>
-  			</div>
-		</header>
+    	</article>
 
-		
+    	<article>
+			<h2>Happy hashing</h2>
+			<p><pre><code class="language-java">public class MyService
+{
 
-				<a class="link" href="#news">News</a>
+    public void protectPassword(User user, String userPassword)
+    {
+        Hash hash = Password.hash(userPassword)
+                            .addPepper("shared-secret")
+                            .addRandomSalt(32)
+                            .withArgon2();
+
+        save(user, hash.getResult());
+    }
+}</code></pre></p>		
+
+    	</article>
 
 
-	</body>
+    </main>
+    <footer class="footer">
+      <div class="footer_content">
+        <p class="footer_description">Password4j &copy; 2022</p>
+      </div>
+    </footer>
+  </body>
 </html>

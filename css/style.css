@@ -64,6 +64,10 @@ article h2 {
 	margin-bottom: 40px;
 }
 
+article h3 {
+	margin-bottom: 20px;
+}
+
 article p {
 	text-align: justify;
 	font-size: 18px;
@@ -78,6 +82,11 @@ ul li p {
   article p {
     line-height: 30px;
   }
+}
+
+pre code {
+	border-radius: 10px;
+	box-shadow: 2px 2px 5px rgba(1,1,1,0.8);
 }
 
 .link {
@@ -407,6 +416,12 @@ div.badge div span {
 
 }
 
+.container-text-image .image.image2 {
+
+  background: linear-gradient(-74deg, #00c3ff, #ffff1c );
+
+}
+
 .container-text-image-reverse .image {
 
   background: linear-gradient(-22deg, #00c9ff, #92fe9d);
@@ -474,12 +489,12 @@ div.badge div span {
   
 
   .flex-direction{
-  flex-direction:column-reverse;
+  	flex-direction:column-reverse;
   }
 
 
-	.container-text-image .image, .container-text-image-reverse .image{
-  background: rgba(0,0,0,0);
+	.container-text-image .image, .container-text-image-reverse .image {
+  background: rgba(0,0,0,0) !important;
   width: 100%;
   text-align: center;
   }

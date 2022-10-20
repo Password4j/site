@@ -1,8 +1,14 @@
 window.addEventListener('load', function(){
-  myScripts();
+
+  if(hljs) {
+    hljs.highlightAll();
+  }
+
+
+  analytics();
   });
 
-function myScripts() {
+function analytics() {
 
   var s = document.createElement('script');
   s.type = "text/javascript"
