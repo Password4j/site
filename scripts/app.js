@@ -1,6 +1,6 @@
 window.addEventListener('load', function(){
 
-  if(hljs) {
+  if(typeof hljs !== 'undefined') {
     hljs.highlightAll();
   }
 
