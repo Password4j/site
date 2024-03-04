@@ -7,7 +7,7 @@
     <meta name="author" content="David Bertoldi" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="description" content="Learn how to install and use Password4j" />
-    <meta name="keywords" content="encryption, installation, java, argon2, scrypt, bcrypt, pbkdf2, md5, hash, cryptography">
+    <meta name="keywords" content="encryption, installation, java, argon2, scrypt, bcrypt, pbkdf2, balloon hashing, md5, hash, cryptography">
     <meta name="robots" content="index,follow" />
     <meta name="subject" content="Install Password4j" />
     <meta name="rating" content="General" />
@@ -85,7 +85,7 @@
     			<pre><code class="language-html">&lt;dependency&gt;
     &lt;groupId>com.password4j&lt;/groupId&gt;
     &lt;artifactId>password4j&lt;/artifactId&gt;
-    &lt;version>1.7.3&lt;/version&gt;
+    &lt;version>1.8.0&lt;/version&gt;
 &lt;/dependency&gt;</code></pre></p>
 
     		<p>If you are not using Maven directly, you can still use the dependency from Maven dependency</p>
@@ -97,12 +97,12 @@
 }
 
 dependencies {
-    implementation 'com.password4j:password4j:1.7.3'
+    implementation 'com.password4j:password4j:1.8.0'
 }</code></pre></p>
 
 			<h3>Scala SBT</h3>
 			<p>Add to the managed dependencies of your <code>build.sbt</code> the latest version:
-				<pre><code class="language-java">libraryDependencies += "com.password4j" % "password4j" % "1.7.3"</code></pre></p>
+				<pre><code class="language-java">libraryDependencies += "com.password4j" % "password4j" % "1.8.0"</code></pre></p>
 
 			<h3>JAR</h3>
 			<p>Or you can download the JAR <a href="https://repo1.maven.org/maven2/com/password4j/password4j/" class="link" target="_blank" rel="noopener">here</a> and include it under your classpath.<p>
@@ -119,7 +119,7 @@ dependencies {
         Hash hash = Password.hash(userPassword)
                             .addPepper("shared-secret")
                             .addRandomSalt(32)
-                            .withArgon2();
+                            .with2();
 
         save(user, hash.getResult());
     }
