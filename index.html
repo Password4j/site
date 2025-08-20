@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Password4j | Password encryption for Java</title>
+    <title>Password4j | Java password hashing (Argon2, bcrypt, scrypt, PBKDF2)</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="David Bertoldi" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="description" content="Encrypt and protect passwords in Java and Android with secure algorithms like Argon2, bcrypt, scrypt, balloon hashing and PBKDF2." />
+    <meta name="description" content="Fluent Java library for secure password hashing with Argon2, bcrypt, scrypt, PBKDF2. OWASP-aligned defaults, examples, and migration guides." />
     <meta name="keywords" content="encryption, password, java, argon2, scrypt, bcrypt, pbkdf2, balloon hashing, md5, hash, cryptography">
     <meta name="robots" content="index,follow" />
     <meta name="subject" content="Hash and protect passwords in Java" />
     <meta name="rating" content="General" />
     <meta property="og:url" content="https://password4j.com" />
-    <meta property="og:title" content="Password4j" />
+    <meta property="og:title" content="Password4j | Java password hashing (Argon2, bcrypt, scrypt, PBKDF2)" />
     <meta property="og:description" content="Hash and protect passwords in Java and Android with secure algorithms like Argon2, bcrypt, scrypt, balloon hashing and PBKDF2." />
     <meta property="og:image" content="https://password4j.com/images/preview.jpg" />
     <meta property="og:image:width" content="1200" />
@@ -80,13 +80,13 @@
             </div>
           </div>
         </a>
-        <a href="https://central.sonatype.dev/artifact/com.password4j/password4j/1.8.2" target="_blank" rel="nofollow">
+        <a href="https://central.sonatype.dev/artifact/com.password4j/password4j/1.8.4" target="_blank" rel="nofollow">
           <div class="badge">
             <div class="name">
               <span>maven central</span>
             </div>
             <div class="status purple">
-              <span>1.8.2</span>
+              <span>1.8.4</span>
             </div>
           </div>
         </a>
@@ -262,7 +262,7 @@
               <span class="fa-li">
                 <i class="fas fa-check"></i>
               </span>
-              <strong>scrypt</strong>: gains an arbitrary level of parallelism over bcrypt. When slow enough, can resist to GPU/ASIC attacks but it is weak to TMTO attacks. <br /> OWAPS recommends using it (if Argon2's adoption is not feasible) with a minimum CPU/memory cost parameter of 2 <sup>16</sup>, a minimum block size of 8 (1024 bytes), and a parallelization parameter of 1
+              <strong>scrypt</strong>: gains an arbitrary level of parallelism over bcrypt. When slow enough, can resist to GPU/ASIC attacks but it is weak to TMTO attacks. <br /> OWASP recommends using it (if Argon2's adoption is not feasible) with a minimum CPU/memory cost parameter of 2 <sup>16</sup>, a minimum block size of 8 (1024 bytes), and a parallelization parameter of 1
             </p>
           </li>
           <li>
